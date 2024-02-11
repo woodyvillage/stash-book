@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:stash_book/view/application/contents/application_contents.dart';
+import 'package:stash_book/view/floater/application_floater.dart';
+import 'package:stash_book/view/footer/application_footer.dart';
 import 'package:stash_book/view/header/application_header.dart';
 
 class ApplicationFrame extends StatefulWidget {
@@ -16,6 +19,8 @@ class _ApplicationFrameState extends State<ApplicationFrame> {
       appBar: ApplicationHeader(isView: true),
       // コンテンツ
       body: ApplicationContents(),
+      // フローティングボタン
+      floatingActionButton: ApplicationFloater(),
       // ナビゲーター
       bottomNavigationBar: ApplicationFooter(),
     );
