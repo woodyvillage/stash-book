@@ -1,6 +1,9 @@
 {
   "@@locale": "en",
 
+  "contents": "{index, select, RECEIPT{Receipt} MENU{Menu} other{}}",
+  "floater": "{index, select, RECEIPTADD{Add} MENUADD{Add} other{}}",
+
   "applicationTitle": "Stash Book",
   "applicationSettingTitle": "settings",
   "applicationProvider": "woodyvillage.com"

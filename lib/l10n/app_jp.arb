@@ -1,6 +1,9 @@
 {
   "@@locale": "ja",
 
+  "contents": "{index, select, RECEIPT{支払い} MENU{メニュー} other{}}",
+  "floater": "{index, select, RECEIPTADD{追加} MENUADD{追加} other{}}",
+
   "applicationTitle": "パパさん小遣帳",
   "applicationSettingTitle": "設定画面",
   "applicationProvider": "woodyvillage.com"
