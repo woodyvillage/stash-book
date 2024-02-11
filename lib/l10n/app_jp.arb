@@ -1,10 +1,13 @@
 {
   "@@locale": "ja",
 
-  "contents": "{index, select, RECEIPT{支払い} MENU{メニュー} other{}}",
-  "floater": "{index, select, RECEIPTADD{追加} MENUADD{追加} other{}}",
+  "contents": "{index, select, RECEIPT{支払いリスト} MENU{お気に入りリスト} other{}}",
+  "floater": "{index, select, RECEIPTADD{支払い追加} MENUADD{お気に入り追加} other{}}",
 
-  "applicationTitle": "パパさん小遣帳",
+  "deposit": "入金",
+  "balance": "残高:",
+
+  "applicationTitle": "パパさんの節約帳",
   "applicationSettingTitle": "設定画面",
   "applicationProvider": "woodyvillage.com"
 }
