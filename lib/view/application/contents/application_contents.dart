@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:stash_book/const/routing_const.dart';
 import 'package:stash_book/service/navigator_position_service.dart';
+import 'package:stash_book/view/design/simple_dashboard/simple_dashboard_organisms.dart';
 
 class ApplicationContents extends StatefulWidget {
   const ApplicationContents({super.key});
@@ -30,13 +31,13 @@ class _ApplicationContentsState extends State<ApplicationContents> {
   Widget build(BuildContext context) {
     return Column(
       children: <Widget>[
-        // // 固定ヘッダ
-        // Container(
-        //   margin: const EdgeInsets.fromLTRB(10, 0, 10, 0),
-        //   width: MediaQuery.of(context).size.width,
-        //   height: 70,
-        //   child: Text(l10n.applicationTitle),
-        // ),
+        // 固定ヘッダ
+        Container(
+          margin: const EdgeInsets.fromLTRB(10, 0, 10, 0),
+          width: MediaQuery.of(context).size.width,
+          height: 130,
+          child: const SimpleDashboardOrganisms(),
+        ),
         // 可変ページャー
         Expanded(
           child: PageView(
