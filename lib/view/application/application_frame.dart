@@ -16,6 +16,8 @@ class _ApplicationFrameState extends State<ApplicationFrame> {
       appBar: ApplicationHeader(isView: true),
       // コンテンツ
       body: ApplicationContents(),
+      // ナビゲーター
+      bottomNavigationBar: ApplicationFooter(),
     );
   }
 }
