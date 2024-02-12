@@ -6,10 +6,14 @@ import 'package:stash_book/service/navigator_position_service.dart';
 import 'package:stash_book/view/application_root.dart';
 
 Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+
   // ローカルDB内のアカウントテーブルをチェック
   await ApplicationDatabase.database;
   AccountDao account = AccountDao();
-  await account.isAuthorized();
+  if (!await account.isAuthorized()) {
+    account.initialize();
+  }
 
   runApp(MultiProvider(
     providers: [

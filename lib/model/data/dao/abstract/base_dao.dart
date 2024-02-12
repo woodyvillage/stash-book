@@ -22,4 +22,9 @@ abstract class BaseDao {
     print('${scope(dto)} count [$result]');
     return result;
   }
+
+  Future<int> insert(dynamic dto) async {
+    Database database = await ApplicationDatabase.database;
+    return await database.insert(DatabaseConst.tableAccount, dto.toMap());
+  }
 }
