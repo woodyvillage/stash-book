@@ -41,6 +41,7 @@ dependencies:
 
   # Provider
   provider: ^6.0.2
+  rxdart: ^0.27.7
 
   # SQLite
   sqflite: ^2.2.0

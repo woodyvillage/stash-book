@@ -1,12 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:intl/intl.dart';
+import 'package:stash_book/bloc/application_bloc.dart';
 import 'package:stash_book/view/design/wrapper/atoms_widget.dart';
 
-class EstimateContainerAtoms extends AtomWidget {
-  const EstimateContainerAtoms({super.key});
+class AccountContainerAtoms extends AtomWidget {
+  const AccountContainerAtoms({super.key, required this.bloc});
+  final ApplicationBloc bloc;
 
   @override
   Widget buildMaterial(BuildContext context) {
+    final formatter = NumberFormat("#,##0");
     return Row(
       children: [
         Container(
@@ -27,13 +31,18 @@ class EstimateContainerAtoms extends AtomWidget {
         Container(
           width: MediaQuery.of(context).size.width - 150,
           padding: const EdgeInsets.symmetric(horizontal: 16),
-          child: const Text(
-            '1234567',
-            textAlign: TextAlign.end,
-            style: TextStyle(
-              fontWeight: FontWeight.w400,
-              fontSize: 48,
-            ),
+          child: StreamBuilder(
+            stream: bloc.inquiry,
+            builder: (context, snapshot) {
+              return Text(
+                formatter.format(snapshot.data),
+                textAlign: TextAlign.end,
+                style: const TextStyle(
+                  fontWeight: FontWeight.w400,
+                  fontSize: 48,
+                ),
+              );
+            },
           ),
         ),
       ],
