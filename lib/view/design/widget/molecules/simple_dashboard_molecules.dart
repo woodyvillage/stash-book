@@ -6,8 +6,13 @@ import 'package:stash_book/view/design/widget/atoms/container/account_container.
 import 'package:stash_book/view/design/wrapper/molecules_widget.dart';
 
 class SimpleDashboardMolecules extends MoleculeWidget {
-  const SimpleDashboardMolecules({super.key, required this.bloc});
+  const SimpleDashboardMolecules({
+    super.key,
+    required this.bloc,
+    required this.func,
+  });
   final ApplicationBloc bloc;
+  final VoidCallback func;
 
   @override
   Widget buildMolecule(final BuildContext context) {
@@ -19,7 +24,7 @@ class SimpleDashboardMolecules extends MoleculeWidget {
   List<Widget> buildMolecules(final BuildContext context) {
     List<Widget> containers = [];
     containers.add(AccountContainerAtoms(bloc: bloc));
-    containers.add(const DepositButtonAtoms());
+    containers.add(DepositButtonAtoms(callback: func));
     return containers;
   }
 }

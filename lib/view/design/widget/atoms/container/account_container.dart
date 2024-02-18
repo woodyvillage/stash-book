@@ -5,7 +5,10 @@ import 'package:stash_book/bloc/application_bloc.dart';
 import 'package:stash_book/view/design/wrapper/atoms_widget.dart';
 
 class AccountContainerAtoms extends AtomWidget {
-  const AccountContainerAtoms({super.key, required this.bloc});
+  const AccountContainerAtoms({
+    super.key,
+    required this.bloc,
+  });
   final ApplicationBloc bloc;
 
   @override
@@ -34,8 +37,13 @@ class AccountContainerAtoms extends AtomWidget {
           child: StreamBuilder(
             stream: bloc.inquiry,
             builder: (context, snapshot) {
+              // Streamがnullの時の対策
+              int? displayInquiry = 0;
+              if (snapshot.hasData) {
+                displayInquiry = snapshot.data;
+              }
               return Text(
-                formatter.format(snapshot.data),
+                formatter.format(displayInquiry),
                 textAlign: TextAlign.end,
                 style: const TextStyle(
                   fontWeight: FontWeight.w400,
