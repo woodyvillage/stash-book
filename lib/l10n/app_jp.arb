@@ -6,6 +6,8 @@
 
   "deposit": "入金",
   "balance": "残高:",
+  "cancel": "取消",
+  "ok": "確定",
 
   "applicationTitle": "パパさんの節約帳",
   "applicationSettingTitle": "設定画面",

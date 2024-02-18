@@ -1,7 +1,7 @@
 import 'package:stash_book/const/database_const.dart';
 
 class AccountDto {
-  int inquiry; // 所持金
+  int inquiry; // 残金
 
   AccountDto({required this.inquiry});
 

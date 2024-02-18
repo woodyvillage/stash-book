@@ -6,6 +6,8 @@
 
   "deposit": "Deposit",
   "balance": "Balance:",
+  "cancel": "cancel",
+  "ok": "ok",
 
   "applicationTitle": "Stash Book",
   "applicationSettingTitle": "settings",
