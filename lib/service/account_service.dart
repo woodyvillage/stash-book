@@ -27,7 +27,10 @@ Future setDto(AccountDto dto) async {
 ////////////////////////////////////////////////////////////////////
 // 入金
 ////////////////////////////////////////////////////////////////////
-deposit(BuildContext context, ApplicationBloc bloc) async {
+deposit(
+  BuildContext context,
+  ApplicationBloc bloc,
+) async {
   // 入金額の入力
   int result = await showSingleDialog(
       context: context, title: AppLocalizations.of(context)!.deposit);

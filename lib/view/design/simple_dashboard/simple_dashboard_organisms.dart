@@ -48,6 +48,9 @@ class _SimpleDashboardOrganismsState extends State<SimpleDashboardOrganisms> {
 
   @override
   Widget build(BuildContext context) {
-    return SimpleDashboardMolecules(bloc: _bloc, func: _func);
+    return SimpleDashboardMolecules(
+      bloc: _bloc,
+      func: _func,
+    );
   }
 }

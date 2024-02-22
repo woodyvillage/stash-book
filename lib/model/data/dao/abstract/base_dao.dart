@@ -25,6 +25,9 @@ abstract class BaseDao {
 
   Future<int> insert(dynamic dto) async {
     Database database = await ApplicationDatabase.database;
-    return await database.insert(DatabaseConst.tableAccount, dto.toMap());
+    return await database.insert(
+      DatabaseConst.tableAccount,
+      dto.toMap(),
+    );
   }
 }

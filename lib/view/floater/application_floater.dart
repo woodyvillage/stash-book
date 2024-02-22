@@ -6,7 +6,9 @@ import 'package:stash_book/service/floater_action_service.dart';
 import 'package:stash_book/service/navigator_position_service.dart';
 
 class ApplicationFloater extends StatefulWidget {
-  const ApplicationFloater({super.key});
+  const ApplicationFloater({
+    super.key,
+  });
 
   @override
   State createState() => _ApplicationFloaterState();

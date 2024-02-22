@@ -34,6 +34,9 @@ class AccountDao extends BaseDao {
 
   Future<int> update(AccountDto dto) async {
     Database database = await ApplicationDatabase.database;
-    return await database.update(DatabaseConst.tableAccount, dto.toMap());
+    return await database.update(
+      DatabaseConst.tableAccount,
+      dto.toMap(),
+    );
   }
 }

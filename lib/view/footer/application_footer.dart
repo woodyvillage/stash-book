@@ -5,7 +5,9 @@ import 'package:stash_book/const/routing_const.dart';
 import 'package:stash_book/service/navigator_position_service.dart';
 
 class ApplicationFooter extends StatefulWidget {
-  const ApplicationFooter({super.key});
+  const ApplicationFooter({
+    super.key,
+  });
 
   @override
   State createState() => _ApplicationFooterState();
@@ -19,8 +21,11 @@ class _ApplicationFooterState extends State<ApplicationFooter> {
 
   void onItemTapped(int index) {
     setState(() {
-      contentsController.animateToPage(index,
-          duration: const Duration(milliseconds: 300), curve: Curves.easeInOut);
+      contentsController.animateToPage(
+        index,
+        duration: const Duration(milliseconds: 300),
+        curve: Curves.easeInOut,
+      );
     });
   }
 

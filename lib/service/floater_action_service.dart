@@ -4,7 +4,10 @@ import 'package:stash_book/view/application/contents/menu/menu_form.dart';
 import 'package:stash_book/view/application/contents/receipt/receipt_form.dart';
 
 class FloaterActionService {
-  static dispatch(BuildContext context, int index) {
+  static dispatch(
+    BuildContext context,
+    int index,
+  ) {
     MaterialPageRoute route = MaterialPageRoute(
       builder: (context) => const ReceiptForm(edit: false),
     );

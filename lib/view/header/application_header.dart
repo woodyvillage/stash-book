@@ -3,7 +3,10 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:stash_book/view/configuration/configuration_frame.dart';
 
 class ApplicationHeader extends StatelessWidget implements PreferredSizeWidget {
-  const ApplicationHeader({super.key, required this.isView});
+  const ApplicationHeader({
+    super.key,
+    required this.isView,
+  });
   final bool isView;
 
   @override

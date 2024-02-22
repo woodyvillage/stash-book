@@ -22,7 +22,10 @@ class ApplicationDatabase {
   static Future<Database> initialize() async {
     Directory directory = await getApplicationSupportDirectory();
     return await openDatabase(
-      join(directory.path, DatabaseConst.databaseName),
+      join(
+        directory.path,
+        DatabaseConst.databaseName,
+      ),
       version: DatabaseConst.databaseVersion,
       onCreate: _onCreate,
       onUpgrade: _onUpgrade,
@@ -33,7 +36,10 @@ class ApplicationDatabase {
     Directory directory = await getApplicationSupportDirectory();
     print('delete database');
     return await deleteDatabase(
-      join(directory.path, DatabaseConst.databaseName),
+      join(
+        directory.path,
+        DatabaseConst.databaseName,
+      ),
     );
   }
 

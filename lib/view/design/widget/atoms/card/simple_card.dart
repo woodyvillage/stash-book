@@ -2,7 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:stash_book/view/design/wrapper/atoms_widget.dart';
 
 class SimpleCardAtoms extends AtomWidget {
-  const SimpleCardAtoms({super.key, required this.child});
+  const SimpleCardAtoms({
+    super.key,
+    required this.child,
+  });
   final List<Widget> child;
 
   @override
