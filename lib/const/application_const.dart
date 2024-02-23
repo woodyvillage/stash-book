@@ -21,10 +21,6 @@ const String floaterMenu = 'MENUADD';
 // 固定インデックス
 const int indexDeposit = 0;
 
-// 返却値
-const int typeNothing = 0;
-const int typeNumeric = 1;
-
 final applicationLists = [
   [patternButton, 'A01', 'DEPOSIT', typeNumeric],
 ];
