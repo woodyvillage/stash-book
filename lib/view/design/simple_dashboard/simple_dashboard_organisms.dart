@@ -30,8 +30,7 @@ class _SimpleDashboardOrganismsState extends State<SimpleDashboardOrganisms> {
     _bloc = Provider.of<ApplicationBloc>(context);
     _func = makeCallback(
       context,
-      indexDeposit,
-      applicationLists,
+      applicationLists[indexDeposit],
     );
   }
 
