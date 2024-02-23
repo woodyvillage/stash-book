@@ -5,9 +5,7 @@ import 'package:stash_book/const/routing_const.dart';
 import 'package:stash_book/service/navigator_position_service.dart';
 
 class ApplicationFooter extends StatefulWidget {
-  const ApplicationFooter({
-    super.key,
-  });
+  const ApplicationFooter({super.key});
 
   @override
   State createState() => _ApplicationFooterState();

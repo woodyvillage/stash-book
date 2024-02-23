@@ -25,8 +25,7 @@ class ApplicationHeader extends StatelessWidget implements PreferredSizeWidget {
               icon: const Icon(Icons.settings),
               onPressed: () {
                 MaterialPageRoute settingPageRoute = MaterialPageRoute(
-                  builder: (context) => const ConfigurationFrame(),
-                );
+                    builder: (context) => const ConfigurationFrame());
                 Navigator.push(
                   context,
                   settingPageRoute,
