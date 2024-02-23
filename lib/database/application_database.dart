@@ -21,6 +21,7 @@ class ApplicationDatabase {
 
   static Future<Database> initialize() async {
     Directory directory = await getApplicationSupportDirectory();
+    print('create database');
     return await openDatabase(
       join(
         directory.path,
@@ -35,6 +36,7 @@ class ApplicationDatabase {
   static Future<void> finalize() async {
     Directory directory = await getApplicationSupportDirectory();
     print('delete database');
+    _database = null;
     return await deleteDatabase(
       join(
         directory.path,
@@ -44,12 +46,12 @@ class ApplicationDatabase {
   }
 
   static Future _onCreate(Database db, int version) async {
-    print('create database version $version');
+    print('create version $version');
     await _execute(db, 1, version);
   }
 
   static Future _onUpgrade(Database db, int previous, int current) async {
-    print('update database version $previous to $current');
+    print('update version $previous to $current');
     await _execute(db, previous + 1, current);
   }
 
