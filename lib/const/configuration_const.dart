@@ -8,7 +8,7 @@ const int indexGeneral = 0;
 const String settingsGeneral = 'GENERAL';
 
 // =============================================================================
-// コンフィグ項目
+// コンフィグアクションリスト
 // =============================================================================
 final settingsLists = [
   [patternButton, 'C01', 'INITIALIZE'],

@@ -9,6 +9,8 @@
   "cancel": "取消",
   "ok": "確定",
 
+  "hint_need_number": "数字で入力してください",
+
   "applicationTitle": "パパさんの節約帳",
   "applicationSettingTitle": "設定画面",
   "applicationProvider": "woodyvillage.com"

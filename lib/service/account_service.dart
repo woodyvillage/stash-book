@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:stash_book/bloc/application_bloc.dart';
+import 'package:stash_book/const/common_const.dart';
 import 'package:stash_book/model/data/dao/account_dao.dart';
 import 'package:stash_book/model/data/dto/account_dto.dart';
 import 'package:stash_book/view/dialog/application_dialog.dart';
@@ -30,10 +30,19 @@ Future setDto(AccountDto dto) async {
 deposit(
   BuildContext context,
   ApplicationBloc bloc,
+  List<Object> list,
 ) async {
   // 入金額の入力
-  int result = await showSingleDialog(
-      context: context, title: AppLocalizations.of(context)!.deposit);
+  int result = 0;
+  try {
+    result = await showSingleDialog(
+      context: context,
+      title: list[indexName],
+      initial: list[indexInitial],
+    );
+  } catch (e) {
+    result = 0;
+  }
 
   // 入力された入金額を加算
   if (result != 0) {

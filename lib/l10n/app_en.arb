@@ -9,6 +9,8 @@
   "cancel": "cancel",
   "ok": "ok",
 
+  "hint_need_number": "Input num",
+
   "applicationTitle": "Stash Book",
   "applicationSettingTitle": "settings",
   "applicationProvider": "woodyvillage.com"
