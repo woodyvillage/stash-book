@@ -11,6 +11,9 @@
 
   "hint_need_number": "数字で入力してください",
 
+  "configure_general_head": "{index, select, C01{端末内のデータを初期化する} other{}}",
+  "configure_general_desc": "{index, select, C01{初期化} other{}}",
+
   "applicationTitle": "パパさんの節約帳",
   "applicationSettingTitle": "設定画面",
   "applicationProvider": "woodyvillage.com"

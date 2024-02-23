@@ -11,5 +11,5 @@ const String settingsGeneral = 'GENERAL';
 // コンフィグアクションリスト
 // =============================================================================
 final settingsLists = [
-  [patternButton, 'C01', 'INITIALIZE'],
+  [patternButton, 'C01', 'INITIALIZE', typeNothing],
 ];
