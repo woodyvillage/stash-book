@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:stash_book/view/configuration/contents/configuration_contents.dart';
 import 'package:stash_book/view/header/application_header.dart';
 
 class ConfigurationFrame extends StatelessWidget {
@@ -10,7 +11,7 @@ class ConfigurationFrame extends StatelessWidget {
       // ヘッダー
       appBar: ApplicationHeader(isView: false),
       // // コンテンツ
-      // body: ConfigurationContents(),
+      body: ConfigurationContents(),
     );
   }
 }
