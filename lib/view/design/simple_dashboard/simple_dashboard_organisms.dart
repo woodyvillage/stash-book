@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:stash_book/bloc/application_bloc.dart';
+import 'package:stash_book/const/application_const.dart';
 import 'package:stash_book/model/data/dao/account_dao.dart';
 import 'package:stash_book/model/data/dto/account_dto.dart';
-import 'package:stash_book/service/account_service.dart';
 import 'package:stash_book/view/design/widget/molecules/simple_dashboard_molecules.dart';
+import 'package:stash_book/view/utility/callback_utility.dart';
 
 class SimpleDashboardOrganisms extends StatefulWidget {
   const SimpleDashboardOrganisms({super.key});
@@ -21,13 +22,17 @@ class _SimpleDashboardOrganismsState extends State<SimpleDashboardOrganisms> {
   void initState() {
     super.initState();
     _getInquiry();
-    _getCallback();
   }
 
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
     _bloc = Provider.of<ApplicationBloc>(context);
+    _func = makeCallback(
+      context,
+      indexDeposit,
+      applicationLists,
+    );
   }
 
   _getInquiry() async {
@@ -38,12 +43,6 @@ class _SimpleDashboardOrganismsState extends State<SimpleDashboardOrganisms> {
       AccountDto dto = await account.select();
       _bloc.deposit.add(dto.inquiry);
     });
-  }
-
-  _getCallback() {
-    _func = () async {
-      await deposit(context, _bloc);
-    };
   }
 
   @override
