@@ -35,7 +35,7 @@ deposit(
   // 入金額の入力
   int result = 0;
   try {
-    result = await showSingleDialog(
+    result = await applicationDialog(
       context: context,
       title: list[indexName],
       initial: list[indexInitial],
