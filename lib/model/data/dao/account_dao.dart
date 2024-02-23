@@ -18,7 +18,7 @@ class AccountDao extends BaseDao {
   }
 
   Future<int> initialize() async {
-    AccountDto dto = AccountDto(inquiry: 12345);
+    AccountDto dto = AccountDto(inquiry: 0);
     return await insert(dto);
   }
 
