@@ -54,6 +54,13 @@ VoidCallback makeButtonCallback(
         // 機能呼び出しのみ、画面遷移なし
         await deposit(context, bloc, list);
       };
+    // Expense
+    case 'A02':
+      ApplicationBloc bloc = Provider.of<ApplicationBloc>(context);
+      return () async {
+        // 機能呼び出しのみ、画面遷移なし
+        await expense(context, bloc, list);
+      };
     // Initialize
     case 'C01':
       return () async {

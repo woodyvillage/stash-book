@@ -20,6 +20,9 @@ class NumberInputDialogMolecules extends MoleculeWidget {
       // Deposit
       case 'DEPOSIT':
         return Text(AppLocalizations.of(context)!.deposit);
+      // Expense
+      case 'EXPENSE':
+        return Text(AppLocalizations.of(context)!.expense);
       default:
         return const Text('');
     }

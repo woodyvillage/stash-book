@@ -57,3 +57,37 @@ deposit(
     bloc.deposit.add(dto.inquiry);
   }
 }
+
+////////////////////////////////////////////////////////////////////
+// 出金
+////////////////////////////////////////////////////////////////////
+expense(
+  BuildContext context,
+  ApplicationBloc bloc,
+  List<Object> list,
+) async {
+  // 出金額の入力
+  int result = 0;
+  try {
+    result = await applicationDialog(
+      context: context,
+      title: list[indexName],
+      initial: list[indexInitial],
+    );
+  } catch (e) {
+    result = 0;
+  }
+
+  // 入力された出金額を減算
+  if (result != 0) {
+    // 所持金の取得
+    AccountDto dto = await getDto();
+    dto.inquiry -= result;
+
+    // 残金の更新
+    await setDto(dto);
+
+    // 残金の通知
+    bloc.deposit.add(dto.inquiry);
+  }
+}

@@ -5,6 +5,7 @@
   "floater": "{index, select, RECEIPTADD{Add} MENUADD{Add} other{}}",
 
   "deposit": "Deposit",
+  "expense": "Expense",
   "balance": "Balance:",
   "cancel": "cancel",
   "ok": "ok",

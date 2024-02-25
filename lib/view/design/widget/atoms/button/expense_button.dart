@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:stash_book/view/design/wrapper/atoms_widget.dart';
 
-class DepositButtonAtoms extends AtomWidget {
-  const DepositButtonAtoms({
+class ExpenseButtonAtoms extends AtomWidget {
+  const ExpenseButtonAtoms({
     super.key,
     required this.callback,
   });
@@ -18,12 +18,12 @@ class DepositButtonAtoms extends AtomWidget {
         children: [
           ElevatedButton.icon(
             icon: const Icon(
-              Icons.add_box_outlined,
+              Icons.indeterminate_check_box_outlined,
               color: Colors.white,
             ),
-            label: Text(AppLocalizations.of(context)!.deposit),
+            label: Text(AppLocalizations.of(context)!.expense),
             style: ElevatedButton.styleFrom(
-              backgroundColor: Colors.green,
+              backgroundColor: Colors.orange,
               foregroundColor: Colors.white,
               minimumSize: const Size(100, 40),
             ),
