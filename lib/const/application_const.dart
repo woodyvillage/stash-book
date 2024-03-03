@@ -8,12 +8,12 @@ const int indexReceipt = 0;
 const int indexMenu = 1;
 
 // アプリケーションのページネーム
-const String contentsReceipt = 'RECEIPT';
-const String contentsMenu = 'MENU';
+const String contentsActivity = 'ACTIVITY';
+const String contentsFavorite = 'FAVORITE';
 
 // アプリケーションのフロートネーム
-const String floaterReceipt = 'RECEIPTADD';
-const String floaterMenu = 'MENUADD';
+const String floaterActivity = 'ACTIVITY_ADD';
+const String floaterFavorite = 'FAVORITE_ADD';
 
 // =============================================================================
 // アプリケーションアクションリスト

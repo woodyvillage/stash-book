@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class ReceiptBody extends StatelessWidget {
-  const ReceiptBody({super.key});
+class ActivityBody extends StatelessWidget {
+  const ActivityBody({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -9,7 +9,7 @@ class ReceiptBody extends StatelessWidget {
       child: SizedBox(
         height: MediaQuery.of(context).size.height,
         width: MediaQuery.of(context).size.width,
-        child: const Text("receipt"),
+        child: const Text("menu"),
       ),
     );
   }

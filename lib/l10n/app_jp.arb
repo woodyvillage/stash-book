@@ -1,8 +1,8 @@
 {
   "@@locale": "ja",
 
-  "contents": "{index, select, RECEIPT{支払いリスト} MENU{お気に入りリスト} other{}}",
-  "floater": "{index, select, RECEIPTADD{支払い追加} MENUADD{お気に入り追加} other{}}",
+  "contents": "{index, select, ACTIVITY{支払いリスト} FAVORITE{お気に入りリスト} other{}}",
+  "floater": "{index, select, ACTIVITY_ADD{支払い追加} FAVORITE_ADD{お気に入り追加} other{}}",
 
   "deposit": "入金",
   "expense": "出金",

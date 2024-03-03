@@ -2,15 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:stash_book/const/application_const.dart';
 import 'package:stash_book/const/routing_const.dart';
 
-class MenuForm extends StatefulWidget {
-  const MenuForm({super.key, required this.edit});
+class FavoriteForm extends StatefulWidget {
+  const FavoriteForm({super.key, required this.edit});
   final bool edit;
 
   @override
-  State createState() => _MenuFormState();
+  State createState() => _FavoriteFormState();
 }
 
-class _MenuFormState extends State<MenuForm> {
+class _FavoriteFormState extends State<FavoriteForm> {
   // List<FormButtonDto> items = [];
 
   @override

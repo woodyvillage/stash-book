@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:stash_book/const/application_const.dart';
 import 'package:stash_book/const/configuration_const.dart';
-import 'package:stash_book/view/application/contents/menu/menu_body.dart';
-import 'package:stash_book/view/application/contents/receipt/receipt_body.dart';
+import 'package:stash_book/view/application/contents/activity/activity_body.dart';
+import 'package:stash_book/view/application/contents/favorite/favorite_body.dart';
 import 'package:stash_book/view/configuration/contents/general/general_body.dart';
 
 // =============================================================================
@@ -21,8 +21,10 @@ final PageController settingsController = PageController(
 // アプリコンテンツレイヤに配置する可変ページャー
 // =============================================================================
 final List<Widget> contentsClasses = [
-  const ReceiptBody(),
-  const MenuBody(),
+  // 入出金
+  const ActivityBody(),
+  // お気に入り
+  const FavoriteBody(),
 ];
 
 final List<Icon> contentsIcons = [
@@ -31,8 +33,8 @@ final List<Icon> contentsIcons = [
 ];
 
 final List<String> contentsTexts = [
-  contentsReceipt,
-  contentsMenu,
+  contentsActivity,
+  contentsFavorite,
 ];
 
 // =============================================================================
@@ -54,8 +56,8 @@ final List<String> settingsText = [
 // アプリコンテンツレイヤに配置するフローティングボタン
 // =============================================================================
 final floaterClasses = [
-  const ReceiptBody(),
-  const MenuBody(),
+  const ActivityBody(),
+  const FavoriteBody(),
 ];
 
 final floaterIcon = [
@@ -65,6 +67,6 @@ final floaterIcon = [
 ];
 
 final List<String> floaterText = [
-  floaterReceipt,
-  floaterMenu,
+  floaterActivity,
+  floaterFavorite,
 ];
