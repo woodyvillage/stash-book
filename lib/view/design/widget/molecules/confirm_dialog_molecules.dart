@@ -27,7 +27,7 @@ class ConfirmDialogMolecules extends MoleculeWidget {
       callback: makeReturnCallback(context),
     ));
     containers.add(DialogButtonAtoms(
-      title: AppLocalizations.of(context)!.ok,
+      title: AppLocalizations.of(context)!.submit,
       callback: makeAcceptCallback(context),
     ));
     return containers;

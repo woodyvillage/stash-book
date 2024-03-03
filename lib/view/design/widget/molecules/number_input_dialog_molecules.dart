@@ -52,7 +52,7 @@ class NumberInputDialogMolecules extends MoleculeWidget {
       callback: makeReturnCallback(context),
     ));
     containers.add(DialogButtonAtoms(
-      title: AppLocalizations.of(context)!.ok,
+      title: AppLocalizations.of(context)!.submit,
       callback: makeResultCallback(context, controller),
     ));
     return containers;

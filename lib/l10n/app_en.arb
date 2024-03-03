@@ -8,7 +8,7 @@
   "expense": "Expense",
   "balance": "Balance:",
   "cancel": "cancel",
-  "ok": "ok",
+  "submit": "ok",
 
   "hint_need_number": "Input num",
 

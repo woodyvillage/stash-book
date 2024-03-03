@@ -8,7 +8,7 @@
   "expense": "出金",
   "balance": "残高:",
   "cancel": "取消",
-  "ok": "確定",
+  "submit": "確定",
 
   "hint_need_number": "数字で入力してください",
 
