@@ -26,3 +26,9 @@ final applicationLists = [
   [patternButton, 'A01', 'DEPOSIT', typeNumeric],
   [patternButton, 'A02', 'EXPENSE', typeNumeric],
 ];
+
+// =============================================================================
+// コマンドボタン
+// =============================================================================
+const functionSubmit = 'submit';
+const functionCancel = 'cancel';
