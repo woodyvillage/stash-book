@@ -21,7 +21,7 @@ class ApplicationDatabase {
 
   static Future<Database> initialize() async {
     Directory directory = await getApplicationSupportDirectory();
-    print('create database');
+    print('initialize database');
     return await openDatabase(
       join(
         directory.path,
