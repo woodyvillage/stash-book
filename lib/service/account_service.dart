@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:stash_book/bloc/application_bloc.dart';
 import 'package:stash_book/const/common_const.dart';
-import 'package:stash_book/model/data/dao/account_dao.dart';
-import 'package:stash_book/model/data/dto/account_dto.dart';
+import 'package:stash_book/model/data/dao/inquiry_dao.dart';
+import 'package:stash_book/model/data/dto/inquiry_dto.dart';
 import 'package:stash_book/view/dialog/application_dialog.dart';
 
 ////////////////////////////////////////////////////////////////////
@@ -10,17 +10,17 @@ import 'package:stash_book/view/dialog/application_dialog.dart';
 ////////////////////////////////////////////////////////////////////
 Future getDto() async {
   // ローカルDB内のアカウントテーブルをチェック
-  AccountDao account = AccountDao();
-  AccountDto dto = await account.select();
+  InquiryDao account = InquiryDao();
+  InquiryDto dto = await account.select();
   return dto;
 }
 
 ////////////////////////////////////////////////////////////////////
 // 残金
 ////////////////////////////////////////////////////////////////////
-Future setDto(AccountDto dto) async {
+Future setDto(InquiryDto dto) async {
   // ローカルDB内のアカウントテーブルをチェック
-  AccountDao account = AccountDao();
+  InquiryDao account = InquiryDao();
   await account.update(dto);
 }
 
@@ -47,7 +47,7 @@ deposit(
   // 入力された入金額を加算
   if (result != 0) {
     // 所持金の取得
-    AccountDto dto = await getDto();
+    InquiryDto dto = await getDto();
     dto.inquiry += result;
 
     // 残金の更新
@@ -81,7 +81,7 @@ expense(
   // 入力された出金額を減算
   if (result != 0) {
     // 所持金の取得
-    AccountDto dto = await getDto();
+    InquiryDto dto = await getDto();
     dto.inquiry -= result;
 
     // 残金の更新

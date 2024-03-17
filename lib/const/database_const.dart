@@ -3,12 +3,12 @@ class DatabaseConst {
   static const databaseName = 'StashBook.db';
   static const databaseVersion = 1;
 
-  // アカウントテーブル
-  static const tableAccount = "account";
+  // 残金テーブル
+  static const tableInquiry = "inquiry";
   static const columnInquiry = 'inquiry';
 
   static final ddlScripts = {
-    '0': ['SELECT $columnInquiry FROM $tableAccount;'],
-    '1': ['CREATE TABLE $tableAccount ($columnInquiry INTEGER NOT NULL);'],
+    '0': ['SELECT $columnInquiry FROM $tableInquiry;'],
+    '1': ['CREATE TABLE $tableInquiry ($columnInquiry INTEGER NOT NULL);'],
   };
 }

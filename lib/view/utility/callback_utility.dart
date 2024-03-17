@@ -4,7 +4,7 @@ import 'package:provider/provider.dart';
 import 'package:stash_book/bloc/application_bloc.dart';
 import 'package:stash_book/const/common_const.dart';
 import 'package:stash_book/database/application_database.dart';
-import 'package:stash_book/model/data/dao/account_dao.dart';
+import 'package:stash_book/model/data/dao/inquiry_dao.dart';
 import 'package:stash_book/service/account_service.dart';
 import 'package:stash_book/view/dialog/application_dialog.dart';
 
@@ -46,17 +46,16 @@ VoidCallback makeButtonCallback(
   BuildContext context,
   List<Object> list,
 ) {
+  ApplicationBloc bloc = Provider.of<ApplicationBloc>(context);
   switch (list[indexKey]) {
     // Deposit
     case 'A01':
-      ApplicationBloc bloc = Provider.of<ApplicationBloc>(context);
       return () async {
         // 機能呼び出しのみ、画面遷移なし
         await deposit(context, bloc, list);
       };
     // Expense
     case 'A02':
-      ApplicationBloc bloc = Provider.of<ApplicationBloc>(context);
       return () async {
         // 機能呼び出しのみ、画面遷移なし
         await expense(context, bloc, list);
@@ -79,10 +78,12 @@ VoidCallback makeButtonCallback(
           // ローカルDBを削除して初期化
           await ApplicationDatabase.finalize();
           await ApplicationDatabase.database;
-          AccountDao account = AccountDao();
+          InquiryDao account = InquiryDao();
           if (!await account.isAuthorized()) {
             account.initialize();
           }
+
+          bloc.deposit.add(0);
 
           // 画面遷移
           Navigator.pop(context);
