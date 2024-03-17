@@ -5,7 +5,7 @@ import 'package:stash_book/bloc/application_bloc.dart';
 import 'package:stash_book/const/common_const.dart';
 import 'package:stash_book/database/application_database.dart';
 import 'package:stash_book/model/data/dao/inquiry_dao.dart';
-import 'package:stash_book/service/account_service.dart';
+import 'package:stash_book/service/inquiry_service.dart';
 import 'package:stash_book/view/dialog/application_dialog.dart';
 
 VoidCallback makeReturnCallback(BuildContext context) {
