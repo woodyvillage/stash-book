@@ -9,13 +9,18 @@ class FloaterActionService {
     int index,
   ) {
     MaterialPageRoute route = MaterialPageRoute(
-      builder: (context) => const ActivityForm(edit: false),
+      builder: (context) => ActivityForm(
+        edit: false,
+        index: index,
+      ),
     );
-
     switch (index) {
       case indexMenu:
         route = MaterialPageRoute(
-          builder: (context) => const FavoriteForm(edit: false),
+          builder: (context) => FavoriteForm(
+            edit: false,
+            index: index,
+          ),
         );
         break;
     }
