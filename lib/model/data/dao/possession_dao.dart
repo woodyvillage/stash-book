@@ -2,11 +2,11 @@ import 'package:sqflite/sqflite.dart';
 import 'package:stash_book/const/database_const.dart';
 import 'package:stash_book/database/application_database.dart';
 import 'package:stash_book/model/data/dao/abstract/base_dao.dart';
-import 'package:stash_book/model/data/dto/inquiry_dto.dart';
+import 'package:stash_book/model/data/dto/possession_dto.dart';
 
-class InquiryDao extends BaseDao {
+class PossessionDao extends BaseDao {
   Future<bool> isAuthorized() async {
-    InquiryDto dto = InquiryDto(inquiry: 0);
+    PossessionDto dto = PossessionDto(possession: 0);
     int? result = await count(dto);
     print('isAuthorized => ${result == 0 ? false : true}');
 
@@ -18,16 +18,16 @@ class InquiryDao extends BaseDao {
   }
 
   Future<int> initialize() async {
-    InquiryDto dto = InquiryDto(inquiry: 0);
+    PossessionDto dto = PossessionDto(possession: 0);
     return await insert(dto);
   }
 
-  Future<InquiryDto> select() async {
+  Future<PossessionDto> select() async {
     Database database = await ApplicationDatabase.database;
     List<Map<String, dynamic>> result =
-        await database.query(DatabaseConst.tableInquiry);
-    List<InquiryDto> dto = result.isNotEmpty
-        ? result.map((item) => InquiryDto.parse(item)).toList()
+        await database.query(DatabaseConst.tablePossession);
+    List<PossessionDto> dto = result.isNotEmpty
+        ? result.map((item) => PossessionDto.parse(item)).toList()
         : [];
     return dto[0];
   }

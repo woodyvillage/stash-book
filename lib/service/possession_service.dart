@@ -1,27 +1,27 @@
 import 'package:flutter/material.dart';
 import 'package:stash_book/bloc/application_bloc.dart';
 import 'package:stash_book/const/common_const.dart';
-import 'package:stash_book/model/data/dao/inquiry_dao.dart';
-import 'package:stash_book/model/data/dto/inquiry_dto.dart';
+import 'package:stash_book/model/data/dao/possession_dao.dart';
+import 'package:stash_book/model/data/dto/possession_dto.dart';
 import 'package:stash_book/view/dialog/application_dialog.dart';
 
 ////////////////////////////////////////////////////////////////////
-// 残金
+// 所持金取得
 ////////////////////////////////////////////////////////////////////
-Future getDto() async {
-  // ローカルDB内のアカウントテーブルをチェック
-  InquiryDao account = InquiryDao();
-  InquiryDto dto = await account.select();
+Future getPossession() async {
+  // 所持金テーブルをチェック
+  PossessionDao dao = PossessionDao();
+  PossessionDto dto = await dao.select();
   return dto;
 }
 
 ////////////////////////////////////////////////////////////////////
-// 残金
+// 所持金更新
 ////////////////////////////////////////////////////////////////////
-Future setDto(InquiryDto dto) async {
+Future setPossession(PossessionDto dto) async {
   // ローカルDB内のアカウントテーブルをチェック
-  InquiryDao account = InquiryDao();
-  await account.update(dto);
+  PossessionDao dao = PossessionDao();
+  await dao.update(dto);
 }
 
 ////////////////////////////////////////////////////////////////////
@@ -47,14 +47,14 @@ deposit(
   // 入力された入金額を加算
   if (result != 0) {
     // 所持金の取得
-    InquiryDto dto = await getDto();
-    dto.inquiry += result;
+    PossessionDto dto = await getPossession();
+    dto.possession += result;
 
-    // 残金の更新
-    await setDto(dto);
+    // 所持金の更新
+    await setPossession(dto);
 
-    // 残金の通知
-    bloc.deposit.add(dto.inquiry);
+    // 所持金の通知
+    bloc.deposit.add(dto.possession);
   }
 }
 
@@ -81,13 +81,13 @@ expense(
   // 入力された出金額を減算
   if (result != 0) {
     // 所持金の取得
-    InquiryDto dto = await getDto();
-    dto.inquiry -= result;
+    PossessionDto dto = await getPossession();
+    dto.possession -= result;
 
-    // 残金の更新
-    await setDto(dto);
+    // 所持金の更新
+    await setPossession(dto);
 
-    // 残金の通知
-    bloc.deposit.add(dto.inquiry);
+    // 所持金の通知
+    bloc.deposit.add(dto.possession);
   }
 }

@@ -9,9 +9,9 @@ class DatabaseConst {
   static const columnKey = 'key';
   static const columnValue = 'value';
 
-  // 残金テーブル
-  static const tableInquiry = "inquiry";
-  static const columnInquiry = 'inquiry';
+  //  所持金テーブル
+  static const tablePossession = "possession";
+  static const columnPossession = 'possession';
 
   // 入出金テーブル
   static const tableAccount = "account";
@@ -22,8 +22,10 @@ class DatabaseConst {
   static const columnFavorite = 'remarks';
 
   static final ddlScripts = {
-    '0': ['SELECT $columnInquiry FROM $tableInquiry;'],
-    '1': ['CREATE TABLE $tableInquiry ($columnInquiry INTEGER NOT NULL);'],
+    '0': ['SELECT $columnPossession FROM $tablePossession;'],
+    '1': [
+      'CREATE TABLE $tablePossession ($columnPossession INTEGER NOT NULL);'
+    ],
     '2': [
       'CREATE TABLE $tableSetting ($columnSequence INTEGER NOT NULL, $columnKey TEXT NOT NULL, $columnValue TEXT NOT NULL);'
     ],

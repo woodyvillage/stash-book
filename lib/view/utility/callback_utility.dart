@@ -4,8 +4,8 @@ import 'package:provider/provider.dart';
 import 'package:stash_book/bloc/application_bloc.dart';
 import 'package:stash_book/const/common_const.dart';
 import 'package:stash_book/database/application_database.dart';
-import 'package:stash_book/model/data/dao/inquiry_dao.dart';
-import 'package:stash_book/service/inquiry_service.dart';
+import 'package:stash_book/model/data/dao/possession_dao.dart';
+import 'package:stash_book/service/possession_service.dart';
 import 'package:stash_book/view/dialog/application_dialog.dart';
 
 VoidCallback makeReturnCallback(BuildContext context) {
@@ -78,9 +78,9 @@ VoidCallback makeButtonCallback(
           // ローカルDBを削除して初期化
           await ApplicationDatabase.finalize();
           await ApplicationDatabase.database;
-          InquiryDao account = InquiryDao();
-          if (!await account.isAuthorized()) {
-            account.initialize();
+          PossessionDao dao = PossessionDao();
+          if (!await dao.isAuthorized()) {
+            dao.initialize();
           }
 
           bloc.deposit.add(0);

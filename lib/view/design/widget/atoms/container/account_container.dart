@@ -35,15 +35,15 @@ class AccountContainerAtoms extends AtomWidget {
           width: MediaQuery.of(context).size.width - 150,
           padding: const EdgeInsets.symmetric(horizontal: 16),
           child: StreamBuilder(
-            stream: bloc.inquiry,
+            stream: bloc.possession,
             builder: (context, snapshot) {
               // Streamがnullの時の対策
-              int? displayInquiry = 0;
+              int? displayPossession = 0;
               if (snapshot.hasData) {
-                displayInquiry = snapshot.data;
+                displayPossession = snapshot.data;
               }
               return Text(
-                formatter.format(displayInquiry),
+                formatter.format(displayPossession),
                 textAlign: TextAlign.end,
                 style: const TextStyle(
                   fontWeight: FontWeight.w400,

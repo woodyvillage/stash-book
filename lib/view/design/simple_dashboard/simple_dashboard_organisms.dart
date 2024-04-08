@@ -2,8 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:stash_book/bloc/application_bloc.dart';
 import 'package:stash_book/const/application_const.dart';
-import 'package:stash_book/model/data/dao/inquiry_dao.dart';
-import 'package:stash_book/model/data/dto/inquiry_dto.dart';
+import 'package:stash_book/model/data/dao/possession_dao.dart';
+import 'package:stash_book/model/data/dto/possession_dto.dart';
+import 'package:stash_book/service/possession_service.dart';
 import 'package:stash_book/view/design/widget/molecules/simple_dashboard_molecules.dart';
 import 'package:stash_book/view/utility/callback_utility.dart';
 
@@ -21,7 +22,7 @@ class _SimpleDashboardOrganismsState extends State<SimpleDashboardOrganisms> {
   @override
   void initState() {
     super.initState();
-    _getInquiry();
+    _getPossession();
   }
 
   @override
@@ -34,13 +35,14 @@ class _SimpleDashboardOrganismsState extends State<SimpleDashboardOrganisms> {
     );
   }
 
-  _getInquiry() async {
+  _getPossession() async {
     // 起動時の最初の一回
     WidgetsBinding.instance.addPostFrameCallback((_) async {
       // ローカルDB内のアカウントテーブルをチェック
-      InquiryDao inquiry = InquiryDao();
-      InquiryDto dto = await inquiry.select();
-      _bloc.deposit.add(dto.inquiry);
+      // PossessionDao dao = PossessionDao();
+      // PossessionDto dto = await dao.select();
+      // _bloc.deposit.add(dto.possession);
+      await getPossession();
     });
   }
 

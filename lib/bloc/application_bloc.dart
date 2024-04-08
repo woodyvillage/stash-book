@@ -6,19 +6,19 @@ class ApplicationBloc {
   Sink<int> get deposit => _getDepositController.sink;
 
   // 所持金
-  final _setInquiryController = BehaviorSubject<int>();
-  Stream<int> get inquiry => _setInquiryController.stream;
+  final _setPossessionController = BehaviorSubject<int>();
+  Stream<int> get possession => _setPossessionController.stream;
 
   ApplicationBloc() {
     // 入金
     _getDepositController.stream.listen((deposit) async {
-      print('ApplicationBloc listen[deposit]$deposit sink[inquiry]$deposit');
-      _setInquiryController.sink.add(deposit);
+      print('ApplicationBloc listen[deposit]$deposit sink[possession]$deposit');
+      _setPossessionController.sink.add(deposit);
     });
   }
 
   void dispose() {
     _getDepositController.close();
-    _setInquiryController.close();
+    _setPossessionController.close();
   }
 }

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:stash_book/bloc/application_bloc.dart';
 import 'package:stash_book/database/application_database.dart';
-import 'package:stash_book/model/data/dao/inquiry_dao.dart';
+import 'package:stash_book/model/data/dao/possession_dao.dart';
 import 'package:stash_book/service/navigator_position_service.dart';
 import 'package:stash_book/view/application_root.dart';
 
@@ -11,7 +11,7 @@ Future<void> main() async {
 
   // ローカルDB内のアカウントテーブルをチェック
   await ApplicationDatabase.database;
-  InquiryDao account = InquiryDao();
+  PossessionDao account = PossessionDao();
   if (!await account.isAuthorized()) {
     account.initialize();
   }
