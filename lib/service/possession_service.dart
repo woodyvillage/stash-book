@@ -54,7 +54,7 @@ deposit(
     await setPossession(dto);
 
     // 所持金の通知
-    bloc.deposit.add(dto.possession);
+    bloc.account.add(dto.possession);
   }
 }
 
@@ -88,6 +88,6 @@ expense(
     await setPossession(dto);
 
     // 所持金の通知
-    bloc.deposit.add(dto.possession);
+    bloc.account.add(dto.possession);
   }
 }

@@ -1,24 +1,24 @@
 import 'package:rxdart/rxdart.dart';
 
 class ApplicationBloc {
-  // 入金額
-  final _getDepositController = BehaviorSubject<int>();
-  Sink<int> get deposit => _getDepositController.sink;
+  // 入出金
+  final _getAccountController = BehaviorSubject<int>();
+  Sink<int> get account => _getAccountController.sink;
 
   // 所持金
   final _setPossessionController = BehaviorSubject<int>();
   Stream<int> get possession => _setPossessionController.stream;
 
   ApplicationBloc() {
-    // 入金
-    _getDepositController.stream.listen((deposit) async {
-      print('ApplicationBloc listen[deposit]$deposit sink[possession]$deposit');
-      _setPossessionController.sink.add(deposit);
+    // 入出金から取り出した金額を所持金に流す
+    _getAccountController.stream.listen((account) async {
+      print('ApplicationBloc listen[account]$account sink[possession]$account');
+      _setPossessionController.sink.add(account);
     });
   }
 
   void dispose() {
-    _getDepositController.close();
+    _getAccountController.close();
     _setPossessionController.close();
   }
 }

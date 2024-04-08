@@ -62,7 +62,7 @@ expense(ApplicationBloc bloc) async {
   await setPossession(possession);
 
   // 所持金の通知
-  bloc.deposit.add(possession.possession);
+  bloc.account.add(possession.possession);
 }
 
 int getPayment(int min, int max) {

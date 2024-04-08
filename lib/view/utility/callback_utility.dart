@@ -83,7 +83,7 @@ VoidCallback makeButtonCallback(
             dao.initialize();
           }
 
-          bloc.deposit.add(0);
+          bloc.account.add(0);
 
           // 画面遷移
           Navigator.pop(context);
