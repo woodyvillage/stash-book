@@ -33,22 +33,22 @@ deposit(
   List<Object> list,
 ) async {
   // 入金額の入力
-  int result = 0;
+  int amount = 0;
   try {
-    result = await applicationDialog(
+    amount = await applicationDialog(
       context: context,
       title: list[indexName],
       initial: list[indexInitial],
     );
   } catch (e) {
-    result = 0;
+    amount = 0;
   }
 
   // 入力された入金額を加算
-  if (result != 0) {
+  if (amount != 0) {
     // 所持金の取得
     PossessionDto dto = await getPossession();
-    dto.possession += result;
+    dto.possession += amount;
 
     // 所持金の更新
     await setPossession(dto);
@@ -67,22 +67,22 @@ expense(
   List<Object> list,
 ) async {
   // 出金額の入力
-  int result = 0;
+  int amount = 0;
   try {
-    result = await applicationDialog(
+    amount = await applicationDialog(
       context: context,
       title: list[indexName],
       initial: list[indexInitial],
     );
   } catch (e) {
-    result = 0;
+    amount = 0;
   }
 
   // 入力された出金額を減算
-  if (result != 0) {
+  if (amount != 0) {
     // 所持金の取得
     PossessionDto dto = await getPossession();
-    dto.possession -= result;
+    dto.possession -= amount;
 
     // 所持金の更新
     await setPossession(dto);

@@ -42,21 +42,21 @@ expense(ApplicationBloc bloc) async {
   }
 
   // 支払額確定
-  int fee = getPayment(min!, max!);
-  print('payment:$min<$max:$fee');
+  int amount = getPayment(min!, max!);
+  print('payment:$min<$max:$amount');
 
   // 入出金の更新
   AccountDto account = AccountDto(
     no: 0,
     date: DateTime.now().toUtc().toString(),
     remarks: "aaa",
-    price: fee,
+    price: amount,
   );
   await setActivity(account);
 
   // 所持金の取得
   PossessionDto possession = await getPossession();
-  possession.possession -= fee;
+  possession.possession -= amount;
 
   // 所持金の更新
   await setPossession(possession);
