@@ -6,9 +6,7 @@ import 'package:stash_book/const/configuration_const.dart';
 import 'package:stash_book/model/data/dao/account_dao.dart';
 import 'package:stash_book/model/data/dao/setting_dao.dart';
 import 'package:stash_book/model/data/dto/account_dto.dart';
-import 'package:stash_book/model/data/dto/possession_dto.dart';
 import 'package:stash_book/model/data/dto/setting_dto.dart';
-import 'package:stash_book/service/possession_service.dart';
 
 ////////////////////////////////////////////////////////////////////
 // 出納設定
