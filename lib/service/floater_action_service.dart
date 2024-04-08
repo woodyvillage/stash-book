@@ -1,20 +1,20 @@
 import 'package:flutter/material.dart';
+import 'package:stash_book/bloc/application_bloc.dart';
 import 'package:stash_book/const/application_const.dart';
-import 'package:stash_book/view/application/contents/activity/activity_form.dart';
+import 'package:stash_book/service/account_service.dart';
 import 'package:stash_book/view/application/contents/favorite/favorite_form.dart';
 
 class FloaterActionService {
   static dispatch(
     BuildContext context,
+    ApplicationBloc bloc,
     int index,
   ) {
-    MaterialPageRoute route = MaterialPageRoute(
-      builder: (context) => ActivityForm(
-        edit: false,
-        index: index,
-      ),
-    );
+    MaterialPageRoute route;
     switch (index) {
+      case indexReceipt:
+        expense(bloc);
+        break;
       case indexMenu:
         route = MaterialPageRoute(
           builder: (context) => FavoriteForm(
@@ -22,11 +22,11 @@ class FloaterActionService {
             index: index,
           ),
         );
+        Navigator.push(
+          context,
+          route,
+        );
         break;
     }
-    Navigator.push(
-      context,
-      route,
-    );
   }
 }
