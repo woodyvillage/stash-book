@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:stash_book/bloc/application_bloc.dart';
 import 'package:stash_book/const/application_const.dart';
-import 'package:stash_book/model/data/dao/possession_dao.dart';
 import 'package:stash_book/model/data/dto/possession_dto.dart';
 import 'package:stash_book/service/possession_service.dart';
 import 'package:stash_book/view/design/widget/molecules/simple_dashboard_molecules.dart';
@@ -38,11 +37,9 @@ class _SimpleDashboardOrganismsState extends State<SimpleDashboardOrganisms> {
   _getPossession() async {
     // 起動時の最初の一回
     WidgetsBinding.instance.addPostFrameCallback((_) async {
-      // ローカルDB内のアカウントテーブルをチェック
-      // PossessionDao dao = PossessionDao();
-      // PossessionDto dto = await dao.select();
-      // _bloc.deposit.add(dto.possession);
-      await getPossession();
+      // 所持金を取得して再描画
+      PossessionDto dto = await getPossession();
+      _bloc.deposit.add(dto.possession);
     });
   }
 
