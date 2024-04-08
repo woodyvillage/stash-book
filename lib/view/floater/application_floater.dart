@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:provider/provider.dart';
+import 'package:stash_book/bloc/application_bloc.dart';
 import 'package:stash_book/const/routing_const.dart';
 import 'package:stash_book/service/floater_action_service.dart';
 import 'package:stash_book/service/navigator_position_service.dart';
@@ -24,13 +25,14 @@ class _ApplicationFloaterState extends State<ApplicationFloater> {
   Widget build(BuildContext context) {
     // ChangeNotifierProviderの通知を見ている
     var index = Provider.of<NavigatorPositionService>(context).selectedRoute;
+    ApplicationBloc bloc = Provider.of<ApplicationBloc>(context);
     return FloatingActionButton.extended(
       backgroundColor: Theme.of(context).primaryColorDark,
       foregroundColor: Colors.white,
       icon: floaterIcon[index],
       label: Text(AppLocalizations.of(context)!.floater(floaterText[index])),
       onPressed: () {
-        FloaterActionService.dispatch(context, index);
+        FloaterActionService.dispatch(context, bloc, index);
       },
     );
   }

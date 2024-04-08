@@ -17,7 +17,6 @@ class DatabaseConst {
 
   // 入出金テーブル
   static const tableAccount = "account";
-  static const columnId = 'id';
   static const columnDate = 'date';
   static const columnRemarks = 'remarks';
   static const columnPrice = 'price';
@@ -35,7 +34,7 @@ class DatabaseConst {
     '4': ['insert into $tableSetting values(2, "MAXIMUM", "900");'],
     '5': ['insert into $tableSetting values(3, "INCREMENT", "10");'],
     '6': [
-      'CREATE TABLE $tableAccount ($columnId INTEGER PRIMARY KEY, $columnDate TEXT NOT NULL, $columnRemarks TEXT, $columnPrice INTEGER NOT NULL);'
+      'CREATE TABLE $tableAccount ($columnNo INTEGER PRIMARY KEY AUTOINCREMENT, $columnDate TEXT NOT NULL, $columnRemarks TEXT, $columnPrice INTEGER NOT NULL);'
     ],
   };
 }
