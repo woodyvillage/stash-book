@@ -7,6 +7,9 @@ const int indexGeneral = 0;
 
 const String settingsGeneral = 'GENERAL';
 
+const String settingsMinimum = 'MINIMUM';
+const String settingsMaximum = 'MAXIMUM';
+
 // =============================================================================
 // コンフィグアクションリスト
 // =============================================================================

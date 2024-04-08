@@ -5,13 +5,13 @@ import 'package:stash_book/model/data/dao/abstract/base_dao.dart';
 import 'package:stash_book/model/data/dto/setting_dto.dart';
 
 class SettingDao extends BaseDao {
-  Future<SettingDto> select() async {
+  Future<List<SettingDto>> select() async {
     Database database = await ApplicationDatabase.database;
     List<Map<String, dynamic>> result =
         await database.query(DatabaseConst.tableSetting);
     List<SettingDto> dto = result.isNotEmpty
         ? result.map((item) => SettingDto.parse(item)).toList()
         : [];
-    return dto[0];
+    return dto;
   }
 }

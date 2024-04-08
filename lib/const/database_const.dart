@@ -3,13 +3,15 @@ class DatabaseConst {
   static const databaseName = 'StashBook.db';
   static const databaseVersion = 6;
 
+  // テーブル共通
+  static const columnNo = 'no';
+
   // 設定テーブル
   static const tableSetting = "settings";
-  static const columnSequence = 'sequence';
   static const columnKey = 'key';
   static const columnValue = 'value';
 
-  //  所持金テーブル
+  // 所持金テーブル
   static const tablePossession = "possession";
   static const columnPossession = 'possession';
 
@@ -27,7 +29,7 @@ class DatabaseConst {
       'CREATE TABLE $tablePossession ($columnPossession INTEGER NOT NULL);'
     ],
     '2': [
-      'CREATE TABLE $tableSetting ($columnSequence INTEGER NOT NULL, $columnKey TEXT NOT NULL, $columnValue TEXT NOT NULL);'
+      'CREATE TABLE $tableSetting ($columnNo INTEGER PRIMARY KEY AUTOINCREMENT, $columnKey TEXT NOT NULL, $columnValue TEXT NOT NULL);'
     ],
     '3': ['insert into $tableSetting values(1, "MINIMUM", "750");'],
     '4': ['insert into $tableSetting values(2, "MAXIMUM", "900");'],
