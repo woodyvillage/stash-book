@@ -3,13 +3,24 @@ import 'dart:math';
 import 'package:intl/intl.dart';
 import 'package:stash_book/bloc/application_bloc.dart';
 import 'package:stash_book/const/configuration_const.dart';
+import 'package:stash_book/const/database_const.dart';
 import 'package:stash_book/model/data/dao/account_dao.dart';
 import 'package:stash_book/model/data/dao/setting_dao.dart';
 import 'package:stash_book/model/data/dto/account_dto.dart';
 import 'package:stash_book/model/data/dto/setting_dto.dart';
 
 ////////////////////////////////////////////////////////////////////
-// 出納設定
+// 入出金取得
+////////////////////////////////////////////////////////////////////
+Future getActivity() async {
+  // 入出金テーブルをチェック
+  AccountDao dao = AccountDao();
+  List<AccountDto> dto = await dao.selectOrderDesc(DatabaseConst.columnNo);
+  return dto;
+}
+
+////////////////////////////////////////////////////////////////////
+// 入出金設定
 ////////////////////////////////////////////////////////////////////
 Future setActivity(AccountDto dto) async {
   AccountDao dao = AccountDao();

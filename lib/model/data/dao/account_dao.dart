@@ -14,4 +14,14 @@ class AccountDao extends BaseDao {
         : [];
     return dto;
   }
+
+  Future<List<AccountDto>> selectOrderDesc(String column) async {
+    Database database = await ApplicationDatabase.database;
+    List<Map<String, dynamic>> result = await database
+        .query(DatabaseConst.tableAccount, orderBy: '$column desc');
+    List<AccountDto> dto = result.isNotEmpty
+        ? result.map((item) => AccountDto.parse(item)).toList()
+        : [];
+    return dto;
+  }
 }
