@@ -2,7 +2,7 @@
   "@@locale": "en",
 
   "contents": "{index, select, ACTIVITY{Activity} FAVORITE{Menu} other{}}",
-  "floater": "{index, select, ACTIVITY_ADD{Add} FAVORITE_ADD{Add} other{}}",
+  "floater": "{index, select, ACTIVITY_ADD{Lunch} FAVORITE_ADD{Add} other{}}",
 
   "deposit": "Deposit",
   "expense": "Expense",

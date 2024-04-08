@@ -46,15 +46,8 @@ deposit(
 
   // 入力された入金額を加算
   if (amount != 0) {
-    // 所持金の取得
-    PossessionDto dto = await getPossession();
-    dto.possession += amount;
-
-    // 所持金の更新
-    await setPossession(dto);
-
-    // 所持金の通知
-    bloc.account.add(dto.possession);
+    // 入金の通知
+    bloc.deposit.add(amount);
   }
 }
 
@@ -80,14 +73,7 @@ expense(
 
   // 入力された出金額を減算
   if (amount != 0) {
-    // 所持金の取得
-    PossessionDto dto = await getPossession();
-    dto.possession -= amount;
-
-    // 所持金の更新
-    await setPossession(dto);
-
-    // 所持金の通知
-    bloc.account.add(dto.possession);
+    // 出金の通知
+    bloc.expense.add(amount);
   }
 }

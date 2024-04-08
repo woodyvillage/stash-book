@@ -61,7 +61,7 @@ final floaterClasses = [
 ];
 
 final floaterIcon = [
-  const Icon(Icons.add),
+  const Icon(Icons.restaurant_rounded),
   const Icon(Icons.playlist_add),
   null,
 ];

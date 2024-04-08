@@ -1,24 +1,47 @@
 import 'package:rxdart/rxdart.dart';
+import 'package:stash_book/model/data/dto/possession_dto.dart';
+import 'package:stash_book/service/possession_service.dart';
 
 class ApplicationBloc {
-  // 入出金
-  final _getAccountController = BehaviorSubject<int>();
-  Sink<int> get account => _getAccountController.sink;
+  // 入金
+  final _getDepositController = BehaviorSubject<int>();
+  Sink<int> get deposit => _getDepositController.sink;
+
+  // 出金
+  final _getExpenseController = BehaviorSubject<int>();
+  Sink<int> get expense => _getExpenseController.sink;
 
   // 所持金
   final _setPossessionController = BehaviorSubject<int>();
   Stream<int> get possession => _setPossessionController.stream;
 
   ApplicationBloc() {
-    // 入出金から取り出した金額を所持金に流す
-    _getAccountController.stream.listen((account) async {
-      print('ApplicationBloc listen[account]$account sink[possession]$account');
-      _setPossessionController.sink.add(account);
+    // 入金した金額を加算して所持金に流す
+    _getDepositController.stream.listen((deposit) async {
+      // 所持金の取得と更新
+      PossessionDto dto = await getPossession();
+      dto.possession += deposit;
+      await setPossession(dto);
+      print(
+          'ApplicationBloc listen[deposit]$deposit sink[possession]${dto.possession}');
+      _setPossessionController.sink.add(dto.possession);
+    });
+
+    // 出金した金額を減算して所持金に流す
+    _getExpenseController.stream.listen((expense) async {
+      // 所持金の取得と更新
+      PossessionDto dto = await getPossession();
+      dto.possession -= expense;
+      await setPossession(dto);
+      print(
+          'ApplicationBloc listen[expoense]$expense sink[possession]${dto.possession}');
+      _setPossessionController.sink.add(dto.possession);
     });
   }
 
   void dispose() {
-    _getAccountController.close();
+    _getDepositController.close();
+    _getExpenseController.close();
     _setPossessionController.close();
   }
 }

@@ -39,7 +39,7 @@ class _SimpleDashboardOrganismsState extends State<SimpleDashboardOrganisms> {
     WidgetsBinding.instance.addPostFrameCallback((_) async {
       // 所持金を取得して再描画
       PossessionDto dto = await getPossession();
-      _bloc.account.add(dto.possession);
+      _bloc.deposit.add(dto.possession);
     });
   }
 

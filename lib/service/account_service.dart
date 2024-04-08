@@ -54,15 +54,8 @@ expense(ApplicationBloc bloc) async {
   );
   await setActivity(account);
 
-  // 所持金の取得
-  PossessionDto possession = await getPossession();
-  possession.possession -= amount;
-
-  // 所持金の更新
-  await setPossession(possession);
-
-  // 所持金の通知
-  bloc.account.add(possession.possession);
+  // 出金の通知
+  bloc.expense.add(amount);
 }
 
 int getPayment(int min, int max) {
