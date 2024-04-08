@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:stash_book/bloc/application_bloc.dart';
 import 'package:stash_book/const/application_const.dart';
-import 'package:stash_book/model/data/dto/possession_dto.dart';
-import 'package:stash_book/service/possession_service.dart';
 import 'package:stash_book/view/design/widget/molecules/simple_dashboard_molecules.dart';
 import 'package:stash_book/view/utility/callback_utility.dart';
 
