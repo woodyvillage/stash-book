@@ -14,8 +14,8 @@ class ApplicationBloc {
   Sink<int> get expense => _getExpenseController.sink;
 
   // 所持金
-  final _setPossessionController = BehaviorSubject<int>();
-  Stream<int> get possession => _setPossessionController.stream;
+  final _setPossessionController = BehaviorSubject<PossessionDto>();
+  Stream<PossessionDto> get possession => _setPossessionController.stream;
 
   // 明細
   final _setAccountController = BehaviorSubject<List<AccountDto>>();
@@ -25,31 +25,31 @@ class ApplicationBloc {
     // 入金した金額を加算して所持金に流す
     _getDepositController.stream.listen((deposit) async {
       // 所持金の取得と更新
-      PossessionDto dto = await getPossession();
-      dto.possession += deposit;
-      await setPossession(dto);
+      PossessionDto possession = await getPossession();
+      possession.possession += deposit;
+      await setPossession(possession);
       print(
-          'ApplicationBloc listen[deposit]$deposit sink[possession]${dto.possession}');
-      _setPossessionController.sink.add(dto.possession);
+          'ApplicationBloc listen[deposit]$deposit sink[possession]${possession.possession}');
+      _setPossessionController.sink.add(possession);
 
       // 最新の収支リストを更新
-      List<AccountDto> dtos = await getActivity();
-      _setAccountController.sink.add(dtos);
+      List<AccountDto> accounts = await getActivity();
+      _setAccountController.sink.add(accounts);
     });
 
     // 出金した金額を減算して所持金に流す
     _getExpenseController.stream.listen((expense) async {
       // 所持金の取得と更新
-      PossessionDto dto = await getPossession();
-      dto.possession -= expense;
-      await setPossession(dto);
+      PossessionDto possession = await getPossession();
+      possession.possession -= expense;
+      await setPossession(possession);
       print(
-          'ApplicationBloc listen[expense]$expense sink[possession]${dto.possession}');
-      _setPossessionController.sink.add(dto.possession);
+          'ApplicationBloc listen[expense]$expense sink[possession]${possession.possession}');
+      _setPossessionController.sink.add(possession);
 
       // 最新の収支リストを更新
-      List<AccountDto> dtos = await getActivity();
-      _setAccountController.sink.add(dtos);
+      List<AccountDto> accounts = await getActivity();
+      _setAccountController.sink.add(accounts);
     });
   }
 

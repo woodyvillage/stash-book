@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:stash_book/bloc/application_bloc.dart';
+import 'package:stash_book/model/data/dto/possession_dto.dart';
 import 'package:stash_book/view/design/wrapper/atoms_widget.dart';
 import 'package:stash_book/view/utility/format_utility.dart';
 
@@ -37,12 +38,12 @@ class AccountContainerAtoms extends AtomWidget {
             stream: bloc.possession,
             builder: (context, snapshot) {
               // Streamがnullの時の対策
-              int? displayPossession = 0;
+              PossessionDto? displayPossession;
               if (snapshot.hasData) {
                 displayPossession = snapshot.data;
               }
               return Text(
-                formatCurrency(context, displayPossession),
+                formatCurrency(context, displayPossession?.possession),
                 textAlign: TextAlign.end,
                 style: const TextStyle(
                   fontWeight: FontWeight.w400,
