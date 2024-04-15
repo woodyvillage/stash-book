@@ -5,6 +5,7 @@ class DatabaseConst {
 
   // テーブル共通
   static const columnNo = 'no';
+  static const sortDesc = 'desc';
 
   // 設定テーブル
   static const tableSetting = "settings";

@@ -1,9 +1,8 @@
-import 'package:sqflite/sqflite.dart';
-import 'package:stash_book/database/application_database.dart';
+import 'package:stash_book/const/database_const.dart';
 import 'package:stash_book/model/data/dao/abstract/base_dao.dart';
 import 'package:stash_book/model/data/dto/possession_dto.dart';
 
-class PossessionDao extends BaseDao {
+class PossessionDao extends BaseDao<PossessionDto> {
   Future<bool> isAuthorized() async {
     int? result = await count(this);
     print('isAuthorized => ${result == 0 ? false : true}');
@@ -19,9 +18,11 @@ class PossessionDao extends BaseDao {
     return await insert(this, dto);
   }
 
-  Future<List<PossessionDto>> list() async {
-    Database database = await ApplicationDatabase.database;
-    List<Map<String, dynamic>> result = await database.query(scope(this));
+  @override
+  String scope() => DatabaseConst.tablePossession;
+
+  @override
+  List<PossessionDto> parseResult(List<Map<String, dynamic>> result) {
     return result.isNotEmpty
         ? result.map((item) => PossessionDto.parse(item)).toList()
         : [];

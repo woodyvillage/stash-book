@@ -15,7 +15,7 @@ import 'package:stash_book/model/data/dto/setting_dto.dart';
 ////////////////////////////////////////////////////////////////////
 Future getActivity() async {
   AccountDao dao = AccountDao();
-  return await dao.selectOrderDesc(DatabaseConst.columnNo);
+  return await dao.sort(DatabaseConst.columnNo, DatabaseConst.sortDesc);
 }
 
 ////////////////////////////////////////////////////////////////////
@@ -42,7 +42,7 @@ int getPayment(int min, int max) {
 ////////////////////////////////////////////////////////////////////
 expense(ApplicationBloc bloc) async {
   SettingDao setting = SettingDao();
-  List<SettingDto> settings = await setting.select();
+  List<SettingDto> settings = await setting.list();
 
   // 下限金額と上限金額
   int? min = 0;
