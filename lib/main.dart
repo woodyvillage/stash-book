@@ -11,9 +11,9 @@ Future<void> main() async {
 
   // ローカルDB内のアカウントテーブルをチェック
   await ApplicationDatabase.database;
-  PossessionDao account = PossessionDao();
-  if (!await account.isAuthorized()) {
-    account.initialize();
+  PossessionDao possession = PossessionDao();
+  if (!await possession.isAuthorized()) {
+    possession.initialize();
   }
 
   runApp(MultiProvider(
