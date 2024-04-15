@@ -1,5 +1,4 @@
 import 'package:sqflite/sqflite.dart';
-import 'package:stash_book/const/database_const.dart';
 import 'package:stash_book/database/application_database.dart';
 import 'package:stash_book/model/data/dao/abstract/base_dao.dart';
 import 'package:stash_book/model/data/dto/possession_dto.dart';
