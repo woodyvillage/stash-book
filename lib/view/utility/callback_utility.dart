@@ -78,11 +78,12 @@ VoidCallback makeButtonCallback(
           // ローカルDBを削除して初期化
           await ApplicationDatabase.finalize();
           await ApplicationDatabase.database;
-          PossessionDao dao = PossessionDao();
-          if (!await dao.isAuthorized()) {
-            dao.initialize();
+          PossessionDao possession = PossessionDao();
+          if (!await possession.isAuthorized()) {
+            possession.initialize();
           }
 
+          // 所持金を0で更新
           bloc.deposit.add(0);
 
           // 画面遷移
