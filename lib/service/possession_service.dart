@@ -9,19 +9,16 @@ import 'package:stash_book/view/dialog/application_dialog.dart';
 // 所持金取得
 ////////////////////////////////////////////////////////////////////
 Future getPossession() async {
-  // 所持金テーブルをチェック
   PossessionDao dao = PossessionDao();
-  PossessionDto dto = await dao.select();
-  return dto;
+  return await dao.select();
 }
 
 ////////////////////////////////////////////////////////////////////
 // 所持金更新
 ////////////////////////////////////////////////////////////////////
 Future setPossession(PossessionDto dto) async {
-  // ローカルDB内のアカウントテーブルをチェック
   PossessionDao dao = PossessionDao();
-  await dao.update(dto);
+  return await dao.update(dto);
 }
 
 ////////////////////////////////////////////////////////////////////

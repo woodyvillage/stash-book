@@ -2,6 +2,7 @@ import 'dart:math';
 
 import 'package:intl/intl.dart';
 import 'package:stash_book/bloc/application_bloc.dart';
+import 'package:stash_book/const/application_const.dart';
 import 'package:stash_book/const/configuration_const.dart';
 import 'package:stash_book/const/database_const.dart';
 import 'package:stash_book/model/data/dao/account_dao.dart';
@@ -13,23 +14,27 @@ import 'package:stash_book/model/data/dto/setting_dto.dart';
 // 入出金取得
 ////////////////////////////////////////////////////////////////////
 Future getActivity() async {
-  // 入出金テーブルをチェック
   AccountDao dao = AccountDao();
-  List<AccountDto> dto = await dao.selectOrderDesc(DatabaseConst.columnNo);
-  return dto;
+  return await dao.selectOrderDesc(DatabaseConst.columnNo);
 }
 
 ////////////////////////////////////////////////////////////////////
-// 入出金設定
+// 入出金更新
 ////////////////////////////////////////////////////////////////////
 Future setActivity(AccountDto dto) async {
   AccountDao dao = AccountDao();
-  await dao.insert(dto);
-  List<AccountDto> accounts = await dao.select();
-  for (int i = 0; i < accounts.length; i++) {
-    print(
-        'select:[$i]date=${accounts[i].date},remarks=${accounts[i].remarks},price=${accounts[i].price}');
-  }
+  return await dao.insert(dto);
+}
+
+////////////////////////////////////////////////////////////////////
+// 入出金算定
+////////////////////////////////////////////////////////////////////
+int getPayment(int min, int max) {
+  var fractionalFormat = DateFormat('S', 'ja_JP');
+  var seed = fractionalFormat.format(DateTime.now());
+
+  int next = min + (Random(int.parse(seed)).nextInt(max - min));
+  return (next / 10).floor() * 10;
 }
 
 ////////////////////////////////////////////////////////////////////
@@ -60,17 +65,10 @@ expense(ApplicationBloc bloc) async {
     date: DateTime.now().toUtc().toString(),
     remarks: "aaa",
     price: amount,
+    mode: indexExpense,
   );
   await setActivity(account);
 
   // 出金の通知
   bloc.expense.add(amount);
-}
-
-int getPayment(int min, int max) {
-  var fractionalFormat = DateFormat('S', 'ja_JP');
-  var seed = fractionalFormat.format(DateTime.now());
-
-  int next = min + (Random(int.parse(seed)).nextInt(max - min));
-  return (next / 10).floor() * 10;
 }
