@@ -44,14 +44,17 @@ expense(ApplicationBloc bloc) async {
   SettingDao setting = SettingDao();
   List<SettingDto> settings = await setting.list();
 
-  // 下限金額と上限金額
+  // 下限と上限、摘要
   int? min = 0;
   int? max = 0;
+  String remarks = '';
   for (var record in settings) {
     if (record.key == settingsMinimum) {
       min = int.tryParse(record.value);
     } else if (record.key == settingsMaximum) {
       max = int.tryParse(record.value);
+    } else if (record.key == settingsRemarks) {
+      remarks = record.value;
     }
   }
 
@@ -63,7 +66,7 @@ expense(ApplicationBloc bloc) async {
   AccountDto account = AccountDto(
     no: 0,
     date: DateTime.now().toUtc().toString(),
-    remarks: "aaa",
+    remarks: remarks,
     price: amount,
     mode: indexExpense,
   );

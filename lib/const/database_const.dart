@@ -34,7 +34,7 @@ class DatabaseConst {
     ],
     '3': ['insert into $tableSetting values(1, "MINIMUM", "750");'],
     '4': ['insert into $tableSetting values(2, "MAXIMUM", "900");'],
-    '5': ['insert into $tableSetting values(3, "INCREMENT", "10");'],
+    '5': ['insert into $tableSetting values(3, "REMARKS", "ランチ代");'],
     '6': [
       'CREATE TABLE $tableAccount ($columnNo INTEGER PRIMARY KEY AUTOINCREMENT, $columnDate TEXT NOT NULL, $columnRemarks TEXT, $columnPrice INTEGER NOT NULL, $columnMode INTEGER NOT NULL);'
     ],

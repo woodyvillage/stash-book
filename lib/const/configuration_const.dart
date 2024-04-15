@@ -9,6 +9,7 @@ const String settingsGeneral = 'GENERAL';
 
 const String settingsMinimum = 'MINIMUM';
 const String settingsMaximum = 'MAXIMUM';
+const String settingsRemarks = 'REMARKS';
 
 // =============================================================================
 // コンフィグアクションリスト
