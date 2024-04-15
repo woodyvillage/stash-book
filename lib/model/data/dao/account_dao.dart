@@ -5,7 +5,7 @@ import 'package:stash_book/model/data/dao/abstract/base_dao.dart';
 import 'package:stash_book/model/data/dto/account_dto.dart';
 
 class AccountDao extends BaseDao {
-  Future<List<AccountDto>> select() async {
+  Future<List<AccountDto>> selectAll() async {
     Database database = await ApplicationDatabase.database;
     List<Map<String, dynamic>> result =
         await database.query(DatabaseConst.tableAccount);

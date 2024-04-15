@@ -21,12 +21,15 @@ abstract class BaseDao {
 
   Future<int?> count(dynamic dto) async {
     Database database = await ApplicationDatabase.database;
-    int? result = Sqflite.firstIntValue(await database.query(
+    return Sqflite.firstIntValue(await database.query(
       scope(dto),
       columns: ['count(*)'],
     ));
-    print('${scope(dto)} count [$result]');
-    return result;
+  }
+
+  Future<List<Map<String, dynamic>>> select(dynamic dto) async {
+    Database database = await ApplicationDatabase.database;
+    return await database.query(scope(dto));
   }
 
   Future<int> update(dynamic dto) async {
