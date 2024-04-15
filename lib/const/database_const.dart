@@ -21,6 +21,7 @@ class DatabaseConst {
   static const columnRemarks = 'remarks';
   static const columnPrice = 'price';
   static const columnFavorite = 'remarks';
+  static const columnMode = 'mode';
 
   static final ddlScripts = {
     '0': ['SELECT $columnPossession FROM $tablePossession;'],
@@ -34,7 +35,7 @@ class DatabaseConst {
     '4': ['insert into $tableSetting values(2, "MAXIMUM", "900");'],
     '5': ['insert into $tableSetting values(3, "INCREMENT", "10");'],
     '6': [
-      'CREATE TABLE $tableAccount ($columnNo INTEGER PRIMARY KEY AUTOINCREMENT, $columnDate TEXT NOT NULL, $columnRemarks TEXT, $columnPrice INTEGER NOT NULL);'
+      'CREATE TABLE $tableAccount ($columnNo INTEGER PRIMARY KEY AUTOINCREMENT, $columnDate TEXT NOT NULL, $columnRemarks TEXT, $columnPrice INTEGER NOT NULL, $columnMode INTEGER NOT NULL);'
     ],
   };
 }

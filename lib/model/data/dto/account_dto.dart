@@ -5,12 +5,14 @@ class AccountDto {
   String date;
   String remarks;
   int price;
+  int mode;
 
   AccountDto({
     required this.no,
     required this.date,
     required this.remarks,
     required this.price,
+    required this.mode,
   });
 
   // DBから読み取った値をDTOに詰める
@@ -19,6 +21,7 @@ class AccountDto {
         date: record[DatabaseConst.columnDate],
         remarks: record[DatabaseConst.columnRemarks],
         price: record[DatabaseConst.columnPrice],
+        mode: record[DatabaseConst.columnMode],
       );
 
   // DBにDTOのデータをinsertする
@@ -26,5 +29,6 @@ class AccountDto {
         DatabaseConst.columnDate: date,
         DatabaseConst.columnRemarks: remarks,
         DatabaseConst.columnPrice: price,
+        DatabaseConst.columnMode: mode,
       };
 }
