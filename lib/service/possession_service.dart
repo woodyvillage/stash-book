@@ -10,7 +10,7 @@ import 'package:stash_book/view/dialog/application_dialog.dart';
 ////////////////////////////////////////////////////////////////////
 Future getPossession() async {
   PossessionDao dao = PossessionDao();
-  return await dao.select();
+  return await dao.find();
 }
 
 ////////////////////////////////////////////////////////////////////

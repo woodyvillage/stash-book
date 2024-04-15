@@ -43,11 +43,8 @@ abstract class BaseDao {
     );
   }
 
-  Future<int> insert(dynamic dto) async {
+  Future<List<Map<String, dynamic>>> select(dynamic dao) async {
     Database database = await ApplicationDatabase.database;
-    return await database.insert(
-      scope(dto),
-      dto.toMap(),
-    );
+    return await database.query(scope(dao));
   }
 }

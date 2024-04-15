@@ -20,13 +20,16 @@ class PossessionDao extends BaseDao {
     return await insert(this, dto);
   }
 
-  Future<PossessionDto> select() async {
+  Future<List<PossessionDto>> list() async {
     Database database = await ApplicationDatabase.database;
-    List<Map<String, dynamic>> result =
-        await database.query(DatabaseConst.tablePossession);
-    List<PossessionDto> dto = result.isNotEmpty
+    List<Map<String, dynamic>> result = await database.query(scope(this));
+    return result.isNotEmpty
         ? result.map((item) => PossessionDto.parse(item)).toList()
         : [];
-    return dto[0];
+  }
+
+  Future<PossessionDto> find() async {
+    List<PossessionDto> result = await list();
+    return result.isNotEmpty ? result[0] : PossessionDto(possession: 0);
   }
 }
