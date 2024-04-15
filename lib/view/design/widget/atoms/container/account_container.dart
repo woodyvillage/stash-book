@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:intl/intl.dart';
 import 'package:stash_book/bloc/application_bloc.dart';
 import 'package:stash_book/view/design/wrapper/atoms_widget.dart';
+import 'package:stash_book/view/utility/format_utility.dart';
 
 class AccountContainerAtoms extends AtomWidget {
   const AccountContainerAtoms({
@@ -13,7 +13,6 @@ class AccountContainerAtoms extends AtomWidget {
 
   @override
   Widget buildMaterial(BuildContext context) {
-    final formatter = NumberFormat("#,##0");
     return Row(
       children: [
         Container(
@@ -43,7 +42,7 @@ class AccountContainerAtoms extends AtomWidget {
                 displayPossession = snapshot.data;
               }
               return Text(
-                formatter.format(displayPossession),
+                formatCurrency(context, displayPossession),
                 textAlign: TextAlign.end,
                 style: const TextStyle(
                   fontWeight: FontWeight.w400,

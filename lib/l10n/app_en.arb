@@ -15,6 +15,9 @@
   "configure_general_head": "{index, select, C01{端末内のデータを初期化する} other{}}",
   "configure_general_desc": "{index, select, C01{初期化} other{}}",
 
+  "amount_format": "#,##0",
+  "datetime_format": "yyyy年MM月dd日 (E) HH:mm",
+
   "applicationTitle": "Stash Book",
   "applicationSettingTitle": "settings",
   "applicationProvider": "woodyvillage.com"
