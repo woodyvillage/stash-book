@@ -6,10 +6,8 @@ import 'package:stash_book/model/data/dto/possession_dto.dart';
 
 class PossessionDao extends BaseDao {
   Future<bool> isAuthorized() async {
-    PossessionDto dto = PossessionDto(possession: 0);
-    int? result = await count(dto);
+    int? result = await count(this);
     print('isAuthorized => ${result == 0 ? false : true}');
-
     return result == null
         ? false
         : result == 0
@@ -19,7 +17,7 @@ class PossessionDao extends BaseDao {
 
   Future<int> initialize() async {
     PossessionDto dto = PossessionDto(possession: 0);
-    return await insert(dto);
+    return await insert(this, dto);
   }
 
   Future<PossessionDto> select() async {

@@ -23,7 +23,7 @@ Future getActivity() async {
 ////////////////////////////////////////////////////////////////////
 Future setActivity(AccountDto dto) async {
   AccountDao dao = AccountDao();
-  return await dao.insert(dto);
+  return await dao.insert(dao, dto);
 }
 
 ////////////////////////////////////////////////////////////////////

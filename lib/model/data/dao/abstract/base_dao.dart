@@ -19,23 +19,26 @@ abstract class BaseDao {
     }
   }
 
-  Future<int?> count(dynamic dto) async {
+  Future<int?> count(dynamic dao) async {
     Database database = await ApplicationDatabase.database;
     return Sqflite.firstIntValue(await database.query(
-      scope(dto),
+      scope(dao),
       columns: ['count(*)'],
     ));
   }
 
-  Future<List<Map<String, dynamic>>> select(dynamic dto) async {
+  Future<int> insert(dynamic dao, dynamic dto) async {
     Database database = await ApplicationDatabase.database;
-    return await database.query(scope(dto));
+    return await database.insert(
+      scope(dao),
+      dto.toMap(),
+    );
   }
 
-  Future<int> update(dynamic dto) async {
+  Future<int> update(dynamic dao, dynamic dto) async {
     Database database = await ApplicationDatabase.database;
     return await database.update(
-      scope(dto),
+      scope(dao),
       dto.toMap(),
     );
   }
