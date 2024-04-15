@@ -5,7 +5,10 @@ import 'package:stash_book/model/form/dto/form_button_dto.dart';
 import 'package:stash_book/view/design/widget/molecules/command_button_molecules.dart';
 
 class CommandButtonOrganisms extends StatefulWidget {
-  const CommandButtonOrganisms({super.key, required this.items});
+  const CommandButtonOrganisms({
+    super.key,
+    required this.items,
+  });
   final List<FormButtonDto> items;
 
   @override
