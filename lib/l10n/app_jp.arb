@@ -12,7 +12,7 @@
 
   "hint_need_number": "数字で入力してください",
 
-  "configure_general_head": "{index, select, C01{端末内のデータを初期化する} other{}}",
+  "configure_general_head": "{index, select, C01{端末内のデータを初期化する} C02{ランチ代上限} C03{ランチ代下限} C04{ランチ代明細} other{}}",
   "configure_general_desc": "{index, select, C01{初期化} other{}}",
 
   "amount_format": "#,##0",

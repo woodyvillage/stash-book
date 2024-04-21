@@ -90,6 +90,13 @@ VoidCallback makeButtonCallback(
           Navigator.pop(context);
         }
       };
+    case 'C02':
+    case 'C03':
+    case 'C04':
+      return () async {
+        // 機能呼び出しのみ、画面遷移なし
+        await expense(context, bloc, list);
+      };
     default:
       return Void as VoidCallback;
   }
