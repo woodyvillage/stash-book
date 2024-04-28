@@ -13,7 +13,7 @@
   "hint_need_number": "Input num",
 
   "configure_general_head": "{index, select, C01{端末内のデータを初期化する} C02{ランチ代上限} C03{ランチ代下限} C04{ランチ代明細} other{}}",
-  "configure_general_desc": "{index, select, C01{初期化} other{}}",
+  "configure_general_desc": "{index, select, C01{初期化} C02{編集} C03{編集} C04{編集} other{}}",
 
   "amount_format": "#,##0",
   "datetime_format": "yyyy年MM月dd日 (E) HH:mm",
