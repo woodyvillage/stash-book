@@ -6,6 +6,7 @@ const int indexType = 0;
 const int indexKey = 1;
 const int indexName = 2;
 const int indexInitial = 3;
+const int indexStyle = 4;
 
 // 返却値
 const int typeNothing = 0;

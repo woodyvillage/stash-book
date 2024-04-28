@@ -12,4 +12,9 @@ class SettingDao extends BaseDao<SettingDto> {
         ? result.map((item) => SettingDto.parse(item)).toList()
         : [];
   }
+
+  Future<String> filter(String column, String keyword) async {
+    List<SettingDto> result = await select(column, keyword);
+    return result.isNotEmpty ? result[0].value : "";
+  }
 }

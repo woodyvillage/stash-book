@@ -34,6 +34,13 @@ abstract class BaseDao<T> {
     return parseResult(result);
   }
 
+  Future<List<T>> select(String column, String value) async {
+    Database database = await ApplicationDatabase.database;
+    List<Map<String, dynamic>> result =
+        await database.query(scope(), where: '$column = ?', whereArgs: [value]);
+    return parseResult(result);
+  }
+
   Future<List<T>> sort(String column, String direction) async {
     Database database = await ApplicationDatabase.database;
     List<Map<String, dynamic>> result =
