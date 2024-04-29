@@ -11,6 +11,7 @@ const int indexStyle = 4;
 // 返却値
 const int typeNothing = 0;
 const int typeNumeric = 1;
+const int typeString = 2;
 
 // 固定文字列
 const String stringNull = "";

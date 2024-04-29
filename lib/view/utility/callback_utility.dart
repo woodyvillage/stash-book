@@ -5,27 +5,42 @@ import 'package:stash_book/bloc/application_bloc.dart';
 import 'package:stash_book/const/common_const.dart';
 import 'package:stash_book/database/application_database.dart';
 import 'package:stash_book/model/data/dao/possession_dao.dart';
+import 'package:stash_book/service/dialog_action_service.dart';
 import 'package:stash_book/service/possession_service.dart';
-import 'package:stash_book/view/dialog/application_dialog.dart';
 
+// 戻るコールバック
 VoidCallback makeReturnCallback(BuildContext context) {
-  return () => Navigator.pop(context, 0);
+  return () => Navigator.pop(context, -1);
 }
 
+// 確定のコールバック
 VoidCallback makeAcceptCallback(BuildContext context) {
   return () => Navigator.pop(context, true);
 }
 
+// 入力ダイアログの結果受領コールバック
 VoidCallback makeResultCallback(
   BuildContext context,
   TextEditingController controller,
+  int type,
 ) {
-  return () => Navigator.pop<int>(
-        context,
-        int.tryParse(controller.text),
-      );
+  switch (type) {
+    case typeNumeric:
+      return () => Navigator.pop<int>(
+            context,
+            int.tryParse(controller.text),
+          );
+    case typeString:
+      return () => Navigator.pop<String>(
+            context,
+            controller.text,
+          );
+    default:
+      return () {};
+  }
 }
 
+// configのindexType別コールバック
 VoidCallback makeCallback(
   BuildContext context,
   List<Object> list,
@@ -42,6 +57,7 @@ VoidCallback makeCallback(
   return callback;
 }
 
+// 各ボタンのsubmitコールバック
 VoidCallback makeButtonCallback(
   BuildContext context,
   List<Object> list,
@@ -63,16 +79,11 @@ VoidCallback makeButtonCallback(
     // Initialize
     case 'C01':
       return () async {
-        bool isAllowed = false;
-        try {
-          isAllowed = await applicationDialog(
-            context: context,
-            title: list[indexKey],
-            initial: list[indexInitial],
-          );
-        } catch (e) {
-          isAllowed = false;
-        }
+        bool isAllowed = await DialogActionService.notification(
+          context,
+          list[indexKey].toString(),
+          list[indexInitial].toString(),
+        );
 
         if (isAllowed) {
           // ローカルDBを削除して初期化
@@ -92,10 +103,22 @@ VoidCallback makeButtonCallback(
       };
     case 'C02':
     case 'C03':
+      return () async {
+        int result = await DialogActionService.inputIntValue(
+            context, list[indexKey].toString(), list[indexInitial].toString());
+        print('result=$result');
+
+        // 入力された金額を設定
+        if (result > 0) {}
+      };
     case 'C04':
       return () async {
-        // 機能呼び出しのみ、画面遷移なし
-        await expense(context, bloc, list);
+        String result = await DialogActionService.inputStringValue(
+            context, list[indexKey].toString(), list[indexInitial].toString());
+        print('result=$result');
+
+        // 入力された文字列を設定
+        if (result != stringError) {}
       };
     default:
       return Void as VoidCallback;

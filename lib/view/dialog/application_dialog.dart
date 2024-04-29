@@ -22,14 +22,11 @@ Widget dialogBuilder(Object title, Object initial) {
   Widget dialog;
 
   // 初期値の値からダイアログのタイプを決定
-  if (int.parse(initial.toString()) == typeNumeric) {
-    dialog = NumberInputDialogOrganisms(title: title.toString());
-    // } else if (initial is String) {
-    //   // null：初期表示なし
-    //   dialog = TextDialog(title: title, value: value);
-    // }
-  } else {
+  int type = int.parse(initial.toString());
+  if (type == typeNothing) {
     dialog = ConfirmDialogOrganisms(title: title.toString());
+  } else {
+    dialog = NumberInputDialogOrganisms(title: title.toString(), type: type);
   }
   return dialog;
 }

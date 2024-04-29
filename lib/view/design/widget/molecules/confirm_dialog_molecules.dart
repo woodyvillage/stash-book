@@ -4,6 +4,7 @@ import 'package:stash_book/view/design/widget/atoms/button/dialog_button.dart';
 import 'package:stash_book/view/design/widget/atoms/dialog/simple_dialog.dart';
 import 'package:stash_book/view/design/wrapper/molecules_widget.dart';
 import 'package:stash_book/view/utility/callback_utility.dart';
+import 'package:stash_book/view/utility/contents_utility.dart';
 
 class ConfirmDialogMolecules extends MoleculeWidget {
   const ConfirmDialogMolecules({
@@ -15,7 +16,7 @@ class ConfirmDialogMolecules extends MoleculeWidget {
   @override
   Widget buildMolecule(final BuildContext context) {
     return SimpleDialogAtoms(
-      title: Text(AppLocalizations.of(context)!.configure_general_head(title)),
+      title: getText(context, title),
       actions: buildMolecules(context),
     );
   }

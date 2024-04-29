@@ -5,8 +5,10 @@ class NumberInputDialogOrganisms extends StatefulWidget {
   const NumberInputDialogOrganisms({
     super.key,
     required this.title,
+    required this.type,
   });
   final String title;
+  final int type;
 
   @override
   State createState() => _NumberInputDialogOrganismsState();
@@ -21,6 +23,7 @@ class _NumberInputDialogOrganismsState
     return NumberInputDialogMolecules(
       controller: _appCtrl,
       title: widget.title,
+      type: widget.type,
     );
   }
 }
