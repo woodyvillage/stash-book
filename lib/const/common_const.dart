@@ -12,6 +12,10 @@ const int indexStyle = 4;
 const int typeNothing = 0;
 const int typeNumeric = 1;
 
+// 固定文字列
+const String stringNull = "";
+const String stringError = "**err**";
+
 // =============================================================================
 // コントロールの識別子
 // =============================================================================

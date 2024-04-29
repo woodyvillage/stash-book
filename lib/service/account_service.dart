@@ -3,6 +3,7 @@ import 'dart:math';
 import 'package:intl/intl.dart';
 import 'package:stash_book/bloc/application_bloc.dart';
 import 'package:stash_book/const/application_const.dart';
+import 'package:stash_book/const/common_const.dart';
 import 'package:stash_book/const/configuration_const.dart';
 import 'package:stash_book/const/database_const.dart';
 import 'package:stash_book/model/data/dao/account_dao.dart';
@@ -47,7 +48,7 @@ expense(ApplicationBloc bloc) async {
   // 下限と上限、摘要
   int? min = 0;
   int? max = 0;
-  String remarks = '';
+  String remarks = stringNull;
   for (var record in settings) {
     if (record.key == settingsMinimum) {
       min = int.tryParse(record.value);

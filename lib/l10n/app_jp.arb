@@ -11,9 +11,14 @@
   "submit": "確定",
 
   "hint_need_number": "数字で入力してください",
+  "hint_need_string": "文字列で入力してください",
 
-  "configure_general_head": "{index, select, C01{端末内のデータを初期化する} C02{ランチ代上限} C03{ランチ代下限} C04{ランチ代明細} other{}}",
-  "configure_general_desc": "{index, select, C01{初期化} C02{編集} C03{編集} C04{編集} other{}}",
+  "db_initialize": "端末内のデータを初期化する",
+  "account_maximum": "ランチ代上限",
+  "account_minimum": "ランチ代下限",
+  "account_remarks": "ランチ代明細",
+  "init": "初期化",
+  "edit": "編集",
 
   "amount_format": "#,##0",
   "datetime_format": "yyyy年MM月dd日 (E) HH:mm",
