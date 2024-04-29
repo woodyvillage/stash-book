@@ -7,9 +7,9 @@ const int indexGeneral = 0;
 
 const String settingsGeneral = 'GENERAL';
 
-const String settingsMinimum = 'MINIMUM';
-const String settingsMaximum = 'MAXIMUM';
-const String settingsRemarks = 'REMARKS';
+const String settingsMinimum = 'account_minimum';
+const String settingsMaximum = 'account_maximum';
+const String settingsRemarks = 'account_remarks';
 
 // =============================================================================
 // コンフィグアクションリスト
@@ -17,7 +17,7 @@ const String settingsRemarks = 'REMARKS';
 final settingsLists = [
   // 種別,キー,識別子,初期値,固定値
   [patternButton, 'C01', 'db_initialize', typeNothing, stringNull],
-  [patternButton, 'C02', 'account_maximum', typeNumeric, stringNull],
-  [patternButton, 'C03', 'account_minimum', typeNumeric, stringNull],
-  [patternButton, 'C04', 'account_remarks', typeString, stringNull],
+  [patternButton, 'C02', settingsMinimum, typeNumeric, stringNull],
+  [patternButton, 'C03', settingsMaximum, typeNumeric, stringNull],
+  [patternButton, 'C04', settingsRemarks, typeString, stringNull],
 ];

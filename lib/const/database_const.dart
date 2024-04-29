@@ -32,9 +32,9 @@ class DatabaseConst {
     '2': [
       'CREATE TABLE $tableSetting ($columnNo INTEGER PRIMARY KEY AUTOINCREMENT, $columnKey TEXT NOT NULL, $columnValue TEXT NOT NULL);'
     ],
-    '3': ['insert into $tableSetting values(1, "MINIMUM", "750");'],
-    '4': ['insert into $tableSetting values(2, "MAXIMUM", "900");'],
-    '5': ['insert into $tableSetting values(3, "REMARKS", "ランチ代");'],
+    '3': ['insert into $tableSetting values(1, "account_minimum", "750");'],
+    '4': ['insert into $tableSetting values(2, "account_maximum", "900");'],
+    '5': ['insert into $tableSetting values(3, "account_remarks", "ランチ代");'],
     '6': [
       'CREATE TABLE $tableAccount ($columnNo INTEGER PRIMARY KEY AUTOINCREMENT, $columnDate TEXT NOT NULL, $columnRemarks TEXT, $columnPrice INTEGER NOT NULL, $columnMode INTEGER NOT NULL);'
     ],
