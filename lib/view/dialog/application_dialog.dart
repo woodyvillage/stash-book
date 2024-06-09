@@ -7,18 +7,19 @@ import 'package:stash_book/view/design/number_input_dialog/number_input_dialog_o
 Future applicationDialog({
   required BuildContext context,
   required Object title,
+  required Object value,
   required Object initial,
 }) {
   return showDialog(
     context: context,
     useRootNavigator: true,
     builder: (BuildContext context) {
-      return dialogBuilder(title, initial);
+      return dialogBuilder(title, value, initial);
     },
   );
 }
 
-Widget dialogBuilder(Object title, Object initial) {
+Widget dialogBuilder(Object title, Object value, Object initial) {
   Widget dialog;
 
   // 初期値の値からダイアログのタイプを決定
@@ -26,7 +27,11 @@ Widget dialogBuilder(Object title, Object initial) {
   if (type == typeNothing) {
     dialog = ConfirmDialogOrganisms(title: title.toString());
   } else {
-    dialog = NumberInputDialogOrganisms(title: title.toString(), type: type);
+    dialog = NumberInputDialogOrganisms(
+      title: title.toString(),
+      value: value.toString(),
+      type: type,
+    );
   }
   return dialog;
 }

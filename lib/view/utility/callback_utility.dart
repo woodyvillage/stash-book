@@ -3,8 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:stash_book/bloc/application_bloc.dart';
 import 'package:stash_book/const/common_const.dart';
+import 'package:stash_book/const/database_const.dart';
 import 'package:stash_book/database/application_database.dart';
 import 'package:stash_book/model/data/dao/possession_dao.dart';
+import 'package:stash_book/model/data/dao/setting_dao.dart';
+import 'package:stash_book/model/data/dto/setting_dto.dart';
 import 'package:stash_book/service/dialog_action_service.dart';
 import 'package:stash_book/service/possession_service.dart';
 
@@ -63,6 +66,8 @@ VoidCallback makeButtonCallback(
   List<Object> list,
 ) {
   ApplicationBloc bloc = Provider.of<ApplicationBloc>(context);
+  SettingDao setting = SettingDao();
+
   switch (list[indexKey]) {
     // Deposit
     case 'A01':
@@ -104,8 +109,17 @@ VoidCallback makeButtonCallback(
     case 'C02':
     case 'C03':
       return () async {
+        List<SettingDto> settings = await setting.select(
+            DatabaseConst.columnKey, list[indexName].toString());
+
+        print(
+            'result=$indexKey,${list[indexKey].toString()},${list[indexName].toString()}');
         int result = await DialogActionService.inputIntValue(
-            context, list[indexKey].toString(), list[indexInitial].toString());
+          context,
+          list[indexKey].toString(),
+          settings[0].value,
+          list[indexInitial].toString(),
+        );
         print('result=$result');
 
         // 入力された金額を設定
@@ -113,8 +127,15 @@ VoidCallback makeButtonCallback(
       };
     case 'C04':
       return () async {
+        List<SettingDto> settings = await setting.select(
+            DatabaseConst.columnKey, list[indexName].toString());
+
         String result = await DialogActionService.inputStringValue(
-            context, list[indexKey].toString(), list[indexInitial].toString());
+          context,
+          list[indexKey].toString(),
+          settings[0].value,
+          list[indexInitial].toString(),
+        );
         print('result=$result');
 
         // 入力された文字列を設定
@@ -123,4 +144,5 @@ VoidCallback makeButtonCallback(
     default:
       return Void as VoidCallback;
   }
+  ;
 }

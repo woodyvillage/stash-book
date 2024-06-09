@@ -13,6 +13,7 @@ class DialogActionService {
       result = await applicationDialog(
         context: context,
         title: title,
+        value: "",
         initial: initial,
       );
     } catch (e) {
@@ -24,6 +25,7 @@ class DialogActionService {
   static inputIntValue(
     BuildContext context,
     String title,
+    String value,
     String initial,
   ) async {
     int result;
@@ -31,6 +33,7 @@ class DialogActionService {
       result = await applicationDialog(
         context: context,
         title: title,
+        value: value,
         initial: initial,
       );
     } catch (e) {
@@ -42,6 +45,7 @@ class DialogActionService {
   static inputStringValue(
     BuildContext context,
     String title,
+    String value,
     String initial,
   ) async {
     String result;
@@ -49,6 +53,7 @@ class DialogActionService {
       result = await applicationDialog(
         context: context,
         title: title,
+        value: value,
         initial: initial,
       );
     } catch (e) {

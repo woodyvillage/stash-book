@@ -5,9 +5,11 @@ class NumberInputDialogOrganisms extends StatefulWidget {
   const NumberInputDialogOrganisms({
     super.key,
     required this.title,
+    required this.value,
     required this.type,
   });
   final String title;
+  final String value;
   final int type;
 
   @override
@@ -16,10 +18,13 @@ class NumberInputDialogOrganisms extends StatefulWidget {
 
 class _NumberInputDialogOrganismsState
     extends State<NumberInputDialogOrganisms> {
-  final TextEditingController _appCtrl = TextEditingController();
+  late TextEditingController _appCtrl;
 
   @override
   Widget build(BuildContext context) {
+    _appCtrl = widget.value == ""
+        ? TextEditingController()
+        : TextEditingController(text: widget.value);
     return NumberInputDialogMolecules(
       controller: _appCtrl,
       title: widget.title,

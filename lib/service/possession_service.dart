@@ -39,6 +39,7 @@ deposit(
     amount = await applicationDialog(
       context: context,
       title: list[indexName],
+      value: "",
       initial: list[indexInitial],
     );
   } catch (e) {
@@ -76,6 +77,7 @@ expense(
     amount = await applicationDialog(
       context: context,
       title: list[indexName],
+      value: "",
       initial: list[indexInitial],
     );
   } catch (e) {
