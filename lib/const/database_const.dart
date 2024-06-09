@@ -1,7 +1,7 @@
 class DatabaseConst {
   // データベース定義
   static const databaseName = 'StashBook.db';
-  static const databaseVersion = 6;
+  static const databaseVersion = 7;
 
   // テーブル共通
   static const columnNo = 'no';
@@ -17,12 +17,14 @@ class DatabaseConst {
   static const columnPossession = 'possession';
 
   // 入出金テーブル
+  // お気に入りテーブル
   static const tableAccount = "account";
   static const columnDate = 'date';
   static const columnRemarks = 'remarks';
   static const columnPrice = 'price';
   static const columnFavorite = 'remarks';
   static const columnMode = 'mode';
+  static const tableFavorite = "favorite";
 
   static final ddlScripts = {
     '0': ['SELECT $columnPossession FROM $tablePossession;'],
@@ -37,6 +39,9 @@ class DatabaseConst {
     '5': ['insert into $tableSetting values(3, "account_remarks", "ランチ代");'],
     '6': [
       'CREATE TABLE $tableAccount ($columnNo INTEGER PRIMARY KEY AUTOINCREMENT, $columnDate TEXT NOT NULL, $columnRemarks TEXT, $columnPrice INTEGER NOT NULL, $columnMode INTEGER NOT NULL);'
+    ],
+    '7': [
+      'CREATE TABLE $tableFavorite ($columnNo INTEGER PRIMARY KEY AUTOINCREMENT, $columnRemarks TEXT, $columnPrice INTEGER NOT NULL);'
     ],
   };
 }

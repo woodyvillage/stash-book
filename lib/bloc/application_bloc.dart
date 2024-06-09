@@ -1,7 +1,9 @@
 import 'package:rxdart/rxdart.dart';
 import 'package:stash_book/model/data/dto/account_dto.dart';
+import 'package:stash_book/model/data/dto/favorite_dto.dart';
 import 'package:stash_book/model/data/dto/possession_dto.dart';
 import 'package:stash_book/service/account_service.dart';
+import 'package:stash_book/service/favorite_service.dart';
 import 'package:stash_book/service/possession_service.dart';
 
 class ApplicationBloc {
@@ -21,6 +23,10 @@ class ApplicationBloc {
   final _setAccountController = BehaviorSubject<List<AccountDto>>();
   Stream<List<AccountDto>> get account => _setAccountController.stream;
 
+  // お気に入り
+  final _setFavoriteController = BehaviorSubject<List<FavoriteDto>>();
+  Stream<List<FavoriteDto>> get favorite => _setFavoriteController.stream;
+
   ApplicationBloc() {
     // 入金した金額を加算して所持金に流す
     _getDepositController.stream.listen((deposit) async {
@@ -35,6 +41,10 @@ class ApplicationBloc {
       // 最新の収支リストを更新
       List<AccountDto> accounts = await getActivity();
       _setAccountController.sink.add(accounts);
+
+      // 最新のお気に入りリストを更新
+      List<FavoriteDto> favorites = await getFavorite();
+      _setFavoriteController.sink.add(favorites);
     });
 
     // 出金した金額を減算して所持金に流す
@@ -50,6 +60,10 @@ class ApplicationBloc {
       // 最新の収支リストを更新
       List<AccountDto> accounts = await getActivity();
       _setAccountController.sink.add(accounts);
+
+      // 最新のお気に入りリストを更新
+      List<FavoriteDto> favorites = await getFavorite();
+      _setFavoriteController.sink.add(favorites);
     });
   }
 
@@ -58,5 +72,6 @@ class ApplicationBloc {
     _getExpenseController.close();
     _setPossessionController.close();
     _setAccountController.close();
+    _setFavoriteController.close();
   }
 }

@@ -74,3 +74,44 @@ List<TextInputFormatter> getFormat(BuildContext context, String word) {
       return [FilteringTextInputFormatter.singleLineFormatter];
   }
 }
+
+Color getForegroundColor(int mode) {
+  switch (mode) {
+    // 入金
+    case 0:
+      return Colors.white;
+    // 出金
+    case 1:
+      return Colors.blue;
+    // お気に入り
+    default:
+      return Colors.green;
+  }
+}
+
+Color getBackgroundColor(int mode) {
+  switch (mode) {
+    // 入金
+    case 0:
+      return Colors.blue;
+    // 出金
+    case 1:
+      return Colors.white;
+    // お気に入り
+    default:
+      return Colors.white;
+  }
+}
+
+Color getPageBackgroundColor(int mode) {
+  switch (mode) {
+    // 入金
+    case 0:
+    // 出金
+    case 1:
+      return Colors.blue;
+    // お気に入り
+    default:
+      return Colors.green;
+  }
+}
