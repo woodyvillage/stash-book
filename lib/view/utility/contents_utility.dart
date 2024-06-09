@@ -12,9 +12,9 @@ Text getText(BuildContext context, String word) {
     case 'C01':
       return Text(AppLocalizations.of(context)!.db_initialize);
     case 'C02':
-      return Text(AppLocalizations.of(context)!.account_maximum);
-    case 'C03':
       return Text(AppLocalizations.of(context)!.account_minimum);
+    case 'C03':
+      return Text(AppLocalizations.of(context)!.account_maximum);
     case 'C04':
       return Text(AppLocalizations.of(context)!.account_remarks);
     default:
