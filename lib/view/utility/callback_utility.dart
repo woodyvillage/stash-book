@@ -144,5 +144,4 @@ VoidCallback makeButtonCallback(
     default:
       return Void as VoidCallback;
   }
-  ;
 }
