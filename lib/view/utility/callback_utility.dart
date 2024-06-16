@@ -112,15 +112,12 @@ VoidCallback makeButtonCallback(
         List<SettingDto> settings = await setting.select(
             DatabaseConst.columnKey, list[indexName].toString());
 
-        print(
-            'result=$indexKey,${list[indexKey].toString()},${list[indexName].toString()}');
         int result = await DialogActionService.inputIntValue(
           context,
           list[indexKey].toString(),
           settings[0].value,
           list[indexInitial].toString(),
         );
-        print('result=$result');
 
         // 入力された金額を設定
         if (result > 0) {}
@@ -136,7 +133,6 @@ VoidCallback makeButtonCallback(
           settings[0].value,
           list[indexInitial].toString(),
         );
-        print('result=$result');
 
         // 入力された文字列を設定
         if (result != stringError) {}

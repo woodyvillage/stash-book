@@ -1,5 +1,6 @@
-import 'package:rxdart/rxdart.dart';
+import 'package:flutter/foundation.dart';
 import 'package:stash_book/model/data/dto/account_dto.dart';
+import 'package:rxdart/rxdart.dart';
 import 'package:stash_book/model/data/dto/favorite_dto.dart';
 import 'package:stash_book/model/data/dto/possession_dto.dart';
 import 'package:stash_book/service/account_service.dart';
@@ -34,8 +35,10 @@ class ApplicationBloc {
       PossessionDto possession = await getPossession();
       possession.possession += deposit;
       await setPossession(possession);
-      print(
-          'ApplicationBloc listen[deposit]$deposit sink[possession]${possession.possession}');
+      if (kDebugMode) {
+        print(
+            'ApplicationBloc listen[deposit]$deposit sink[possession]${possession.possession}');
+      }
       _setPossessionController.sink.add(possession);
 
       // 最新の収支リストを更新
@@ -53,8 +56,10 @@ class ApplicationBloc {
       PossessionDto possession = await getPossession();
       possession.possession -= expense;
       await setPossession(possession);
-      print(
-          'ApplicationBloc listen[expense]$expense sink[possession]${possession.possession}');
+      if (kDebugMode) {
+        print(
+            'ApplicationBloc listen[expense]$expense sink[possession]${possession.possession}');
+      }
       _setPossessionController.sink.add(possession);
 
       // 最新の収支リストを更新

@@ -1,5 +1,6 @@
 import 'dart:math';
 
+import 'package:flutter/foundation.dart';
 import 'package:intl/intl.dart';
 import 'package:stash_book/bloc/application_bloc.dart';
 import 'package:stash_book/const/application_const.dart';
@@ -61,7 +62,9 @@ expense(ApplicationBloc bloc) async {
 
   // 支払額確定
   int amount = getPayment(min!, max!);
-  print('payment:$min<$max:$amount');
+  if (kDebugMode) {
+    print('payment:$min<$max:$amount');
+  }
 
   // 入出金の更新
   AccountDto account = AccountDto(

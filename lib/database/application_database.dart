@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:flutter/foundation.dart';
 import 'package:path/path.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:sqflite/sqflite.dart';
@@ -21,7 +22,9 @@ class ApplicationDatabase {
 
   static Future<Database> initialize() async {
     Directory directory = await getApplicationSupportDirectory();
-    print('initialize database[${DatabaseConst.databaseVersion}]');
+    if (kDebugMode) {
+      print('initialize database[${DatabaseConst.databaseVersion}]');
+    }
     return await openDatabase(
       join(
         directory.path,
@@ -35,7 +38,9 @@ class ApplicationDatabase {
 
   static Future<void> finalize() async {
     Directory directory = await getApplicationSupportDirectory();
-    print('delete database');
+    if (kDebugMode) {
+      print('delete database');
+    }
     _database = null;
     return await deleteDatabase(
       join(
@@ -46,12 +51,16 @@ class ApplicationDatabase {
   }
 
   static Future _onCreate(Database db, int version) async {
-    print('create version $version');
+    if (kDebugMode) {
+      print('create version $version');
+    }
     await _execute(db, 1, version);
   }
 
   static Future _onUpgrade(Database db, int previous, int current) async {
-    print('update version $previous to $current');
+    if (kDebugMode) {
+      print('update version $previous to $current');
+    }
     await _execute(db, previous + 1, current);
   }
 
@@ -59,7 +68,9 @@ class ApplicationDatabase {
     for (var i = previous; i <= current; i++) {
       var queries = DatabaseConst.ddlScripts[i.toString()];
       for (String query in queries!) {
-        print(query);
+        if (kDebugMode) {
+          print(query);
+        }
         await db.execute(query);
       }
     }
