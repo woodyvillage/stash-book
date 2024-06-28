@@ -87,7 +87,7 @@ VoidCallback makeButtonCallback(
         bool isAllowed = await DialogActionService.notification(
           context,
           list[indexKey].toString(),
-          list[indexInitial].toString(),
+          int.parse(list[indexInitial].toString()),
         );
 
         if (isAllowed) {
@@ -116,7 +116,7 @@ VoidCallback makeButtonCallback(
           context,
           list[indexKey].toString(),
           settings[0].value,
-          list[indexInitial].toString(),
+          int.parse(list[indexInitial].toString()),
         );
 
         // 入力された金額を設定
@@ -131,7 +131,7 @@ VoidCallback makeButtonCallback(
           context,
           list[indexKey].toString(),
           settings[0].value,
-          list[indexInitial].toString(),
+          int.parse(list[indexInitial].toString()),
         );
 
         // 入力された文字列を設定
