@@ -15,10 +15,13 @@ class FavoriteItemAtoms extends AtomWidget {
     return ListTile(
       leading: CircleAvatarAtoms(mode: 9, price: item.price),
       title: Text(
+        item.category,
+        style: const TextStyle(fontSize: 16),
+      ),
+      subtitle: Text(
         item.remarks,
         style: const TextStyle(fontSize: 16),
       ),
-      subtitle: const Text(''),
     );
   }
 }
