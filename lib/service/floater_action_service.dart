@@ -13,7 +13,7 @@ class FloaterActionService {
     MaterialPageRoute route;
     switch (index) {
       case indexReceipt:
-        expense(bloc);
+        payment(bloc);
         break;
       case indexMenu:
         route = MaterialPageRoute(

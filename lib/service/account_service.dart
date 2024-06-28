@@ -40,9 +40,9 @@ int getPayment(int min, int max) {
 }
 
 ////////////////////////////////////////////////////////////////////
-// 出金
+// 支払
 ////////////////////////////////////////////////////////////////////
-expense(ApplicationBloc bloc) async {
+payment(ApplicationBloc bloc) async {
   SettingDao setting = SettingDao();
   List<SettingDto> settings = await setting.list();
 
