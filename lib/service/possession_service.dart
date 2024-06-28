@@ -38,9 +38,9 @@ deposit(
   try {
     amount = await applicationDialog(
       context: context,
-      title: list[indexName],
-      value: "",
-      initial: list[indexInitial],
+      title: list[indexName].toString(),
+      value: stringNull,
+      initial: int.parse(list[indexInitial].toString()),
     );
   } catch (e) {
     amount = 0;
@@ -76,9 +76,9 @@ expense(
   try {
     amount = await applicationDialog(
       context: context,
-      title: list[indexName],
-      value: "",
-      initial: list[indexInitial],
+      title: list[indexName].toString(),
+      value: stringNull,
+      initial: int.parse(list[indexInitial].toString()),
     );
   } catch (e) {
     amount = 0;

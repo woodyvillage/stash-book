@@ -1,13 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:stash_book/model/form/dto/form_editor_dto.dart';
 import 'package:stash_book/view/design/widget/molecules/single_input_dialog_molecules.dart';
 
 class SingleInputDialogOrganisms extends StatefulWidget {
   const SingleInputDialogOrganisms({
     super.key,
-    required this.item,
+    required this.title,
+    required this.value,
+    required this.type,
   });
-  final FormEditorDto item;
+  final String title;
+  final String value;
+  final int type;
 
   @override
   State createState() => _SingleInputDialogOrganismsState();
@@ -18,7 +21,9 @@ class _SingleInputDialogOrganismsState
   @override
   Widget build(BuildContext context) {
     return SingleInputDialogMolecules(
-      item: widget.item,
+      title: widget.title,
+      value: widget.value,
+      type: widget.type,
     );
   }
 }

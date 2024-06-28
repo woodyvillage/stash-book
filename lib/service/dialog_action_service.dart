@@ -6,14 +6,14 @@ class DialogActionService {
   static notification(
     BuildContext context,
     String title,
-    String initial,
+    int initial,
   ) async {
     bool result;
     try {
       result = await applicationDialog(
         context: context,
         title: title,
-        value: "",
+        value: stringNull,
         initial: initial,
       );
     } catch (e) {
@@ -26,7 +26,7 @@ class DialogActionService {
     BuildContext context,
     String title,
     String value,
-    String initial,
+    int initial,
   ) async {
     int result;
     try {
@@ -46,7 +46,7 @@ class DialogActionService {
     BuildContext context,
     String title,
     String value,
-    String initial,
+    int initial,
   ) async {
     String result;
     try {

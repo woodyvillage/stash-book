@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:stash_book/const/common_const.dart';
 import 'package:stash_book/view/design/confirm_dialog/confirm_dialog_organisms.dart';
-import 'package:stash_book/view/design/number_input_dialog/number_input_dialog_organisms.dart';
+import 'package:stash_book/view/design/single_input_dialog/single_input_dialog_organisms.dart';
+// import 'package:stash_book/view/design/number_input_dialog/number_input_dialog_organisms.dart';
 
 // ダイアログ表示
 Future applicationDialog({
   required BuildContext context,
-  required Object title,
-  required Object value,
-  required Object initial,
+  required String title,
+  required String value,
+  required int initial,
 }) {
   return showDialog(
     context: context,
@@ -19,18 +20,19 @@ Future applicationDialog({
   );
 }
 
-Widget dialogBuilder(Object title, Object value, Object initial) {
+Widget dialogBuilder(String title, String value, int initial) {
   Widget dialog;
 
   // 初期値の値からダイアログのタイプを決定
-  int type = int.parse(initial.toString());
-  if (type == typeNothing) {
+  if (initial == typeNothing) {
+    // 入力なし
     dialog = ConfirmDialogOrganisms(title: title.toString());
   } else {
-    dialog = NumberInputDialogOrganisms(
-      title: title.toString(),
-      value: value.toString(),
-      type: type,
+    // シングル入力
+    dialog = SingleInputDialogOrganisms(
+      title: title,
+      value: value,
+      type: initial,
     );
   }
   return dialog;
