@@ -66,7 +66,7 @@ deposit(
 ////////////////////////////////////////////////////////////////////
 // 出金
 ////////////////////////////////////////////////////////////////////
-expense(
+withdraw(
   BuildContext context,
   ApplicationBloc bloc,
   List<Object> list,
@@ -90,13 +90,13 @@ expense(
     AccountDto account = AccountDto(
       no: 0,
       date: DateTime.now().toUtc().toString(),
-      remarks: AppLocalizations.of(context)!.expense,
+      remarks: AppLocalizations.of(context)!.withdraw,
       price: amount,
-      mode: indexExpense,
+      mode: indexWithdraw,
     );
     await setActivity(account);
 
     // 出金の通知
-    bloc.expense.add(amount);
+    bloc.withdraw.add(amount);
   }
 }

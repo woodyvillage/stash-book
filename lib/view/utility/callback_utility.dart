@@ -93,11 +93,11 @@ VoidCallback makeButtonCallback(
         // 機能呼び出しのみ、画面遷移なし
         await deposit(context, bloc, list);
       };
-    // Expense
+    // Withdraw
     case 'A02':
       return () async {
         // 機能呼び出しのみ、画面遷移なし
-        await expense(context, bloc, list);
+        await withdraw(context, bloc, list);
       };
     // Initialize
     case 'C01':

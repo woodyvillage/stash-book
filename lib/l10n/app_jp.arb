@@ -5,7 +5,7 @@
   "floater": "{index, select, ACTIVITY_ADD{ランチ} FAVORITE_ADD{お気に入り登録} other{}}",
 
   "deposit": "入金",
-  "expense": "出金",
+  "withdraw": "出金",
   "balance": "残高:",
   "cancel": "取消",
   "submit": "確定",

@@ -13,8 +13,8 @@ class ApplicationBloc {
   Sink<int> get deposit => _getDepositController.sink;
 
   // 出金
-  final _getExpenseController = BehaviorSubject<int>();
-  Sink<int> get expense => _getExpenseController.sink;
+  final _getWithdrawController = BehaviorSubject<int>();
+  Sink<int> get withdraw => _getWithdrawController.sink;
 
   // 所持金
   final _setPossessionController = BehaviorSubject<PossessionDto>();
@@ -51,14 +51,14 @@ class ApplicationBloc {
     });
 
     // 出金した金額を減算して所持金に流す
-    _getExpenseController.stream.listen((expense) async {
+    _getWithdrawController.stream.listen((withdraw) async {
       // 所持金の取得と更新
       PossessionDto possession = await getPossession();
-      possession.possession -= expense;
+      possession.possession -= withdraw;
       await setPossession(possession);
       if (kDebugMode) {
         print(
-            'ApplicationBloc listen[expense]$expense sink[possession]${possession.possession}');
+            'ApplicationBloc listen[withdraw]$withdraw sink[possession]${possession.possession}');
       }
       _setPossessionController.sink.add(possession);
 
@@ -74,7 +74,7 @@ class ApplicationBloc {
 
   void dispose() {
     _getDepositController.close();
-    _getExpenseController.close();
+    _getWithdrawController.close();
     _setPossessionController.close();
     _setAccountController.close();
     _setFavoriteController.close();

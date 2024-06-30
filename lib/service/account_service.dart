@@ -72,10 +72,10 @@ payment(ApplicationBloc bloc) async {
     date: DateTime.now().toUtc().toString(),
     remarks: remarks,
     price: amount,
-    mode: indexExpense,
+    mode: indexWithdraw,
   );
   await setActivity(account);
 
   // 出金の通知
-  bloc.expense.add(amount);
+  bloc.withdraw.add(amount);
 }

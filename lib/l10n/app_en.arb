@@ -5,7 +5,7 @@
   "floater": "{index, select, ACTIVITY_ADD{Lunch} FAVORITE_ADD{Add} other{}}",
 
   "deposit": "Deposit",
-  "expense": "Expense",
+  "withdraw": "Withdraw",
   "balance": "Balance:",
   "cancel": "cancel",
   "submit": "ok",

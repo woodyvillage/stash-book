@@ -7,8 +7,8 @@ Text getText(BuildContext context, String word) {
   switch (word) {
     case 'DEPOSIT':
       return Text(AppLocalizations.of(context)!.deposit);
-    case 'EXPENSE':
-      return Text(AppLocalizations.of(context)!.expense);
+    case 'WITHDRAW':
+      return Text(AppLocalizations.of(context)!.withdraw);
     case 'C01':
       return Text(AppLocalizations.of(context)!.db_initialize);
     case 'C02':
@@ -38,7 +38,7 @@ Text getDesc(BuildContext context, String word) {
 InputDecoration getHint(BuildContext context, String word) {
   switch (word) {
     case 'DEPOSIT':
-    case 'EXPENSE':
+    case 'WITHDRAW':
     case 'C02':
     case 'C03':
       return InputDecoration(
@@ -63,7 +63,7 @@ InputDecoration getHint(BuildContext context, String word) {
 TextInputType getKeyType(BuildContext context, String word) {
   switch (word) {
     case 'DEPOSIT':
-    case 'EXPENSE':
+    case 'WITHDRAW':
     case 'C02':
     case 'C03':
     case 'F03':
@@ -76,7 +76,7 @@ TextInputType getKeyType(BuildContext context, String word) {
 List<TextInputFormatter> getFormat(BuildContext context, String word) {
   switch (word) {
     case 'DEPOSIT':
-    case 'EXPENSE':
+    case 'WITHDRAW':
     case 'C02':
     case 'C03':
     case 'F03':

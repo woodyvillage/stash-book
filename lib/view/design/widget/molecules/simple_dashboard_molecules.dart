@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:stash_book/bloc/application_bloc.dart';
 import 'package:stash_book/const/application_const.dart';
 import 'package:stash_book/view/design/widget/atoms/button/deposit_button.dart';
-import 'package:stash_book/view/design/widget/atoms/button/expense_button.dart';
+import 'package:stash_book/view/design/widget/atoms/button/withdraw_button.dart';
 import 'package:stash_book/view/design/widget/atoms/card/simple_card.dart';
 import 'package:stash_book/view/design/widget/atoms/container/account_container.dart';
 import 'package:stash_book/view/design/wrapper/molecules_widget.dart';
@@ -30,10 +30,10 @@ class SimpleDashboardMolecules extends MoleculeWidget {
     containers.add(Row(
       mainAxisAlignment: MainAxisAlignment.end,
       children: [
-        ExpenseButtonAtoms(
+        WithdrawButtonAtoms(
           callback: makeCallback(
             context,
-            applicationLists[indexExpense],
+            applicationLists[indexWithdraw],
           ),
         ),
         DepositButtonAtoms(

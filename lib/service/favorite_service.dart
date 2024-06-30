@@ -50,6 +50,6 @@ Future entry(
     await setFavorite(favorite);
 
     // 出金の通知
-    bloc.expense.add(0);
+    bloc.withdraw.add(0);
   }
 }

@@ -20,11 +20,11 @@ const String floaterFavorite = 'FAVORITE_ADD';
 // =============================================================================
 // 固定インデックス
 const int indexDeposit = 0;
-const int indexExpense = 1;
+const int indexWithdraw = 1;
 
 final applicationLists = [
   [patternButton, 'A01', 'DEPOSIT', typeNumeric],
-  [patternButton, 'A02', 'EXPENSE', typeNumeric],
+  [patternButton, 'A02', 'WITHDRAW', typeNumeric],
 ];
 
 // =============================================================================
