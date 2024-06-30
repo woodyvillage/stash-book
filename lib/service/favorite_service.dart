@@ -41,7 +41,6 @@ Future entry(
       items: favoriteLists,
     );
   } catch (e) {
-    print("debug0:");
     favorite =
         FavoriteDto(no: 0, category: stringNull, remarks: stringNull, price: 0);
   }
