@@ -4,7 +4,9 @@ import 'package:stash_book/const/application_const.dart';
 import 'package:stash_book/const/common_const.dart';
 import 'package:stash_book/const/database_const.dart';
 import 'package:stash_book/model/data/dao/favorite_dao.dart';
+import 'package:stash_book/model/data/dto/account_dto.dart';
 import 'package:stash_book/model/data/dto/favorite_dto.dart';
+import 'package:stash_book/service/account_service.dart';
 import 'package:stash_book/view/dialog/application_dialog.dart';
 
 ////////////////////////////////////////////////////////////////////
@@ -52,4 +54,26 @@ Future entry(
     // 出金の通知
     bloc.withdraw.add(0);
   }
+}
+
+////////////////////////////////////////////////////////////////////
+// 定型支払
+////////////////////////////////////////////////////////////////////
+void expense(
+  BuildContext context,
+  ApplicationBloc bloc,
+  FavoriteDto item,
+) async {
+  // 入出金の更新
+  AccountDto account = AccountDto(
+    no: 0,
+    date: DateTime.now().toUtc().toString(),
+    remarks: item.category + "(" + item.remarks + ")",
+    price: item.price,
+    mode: indexWithdraw,
+  );
+  await setActivity(account);
+
+  // 出金の通知
+  bloc.withdraw.add(item.price);
 }
