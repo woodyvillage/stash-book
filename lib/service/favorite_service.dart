@@ -46,9 +46,11 @@ Future entry(
         FavoriteDto(no: 0, category: stringNull, remarks: stringNull, price: 0);
   }
 
-  // お気に入りの更新
-  await setFavorite(favorite);
+  if (favorite.price > 0) {
+    // お気に入りの更新
+    await setFavorite(favorite);
 
-  // 出金の通知
-  bloc.expense.add(0);
+    // 出金の通知
+    bloc.expense.add(0);
+  }
 }
