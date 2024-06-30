@@ -19,12 +19,12 @@ class DatabaseConst {
   // 入出金テーブル
   // お気に入りテーブル
   static const tableAccount = "account";
+  static const tableFavorite = "favorite";
   static const columnDate = 'date';
   static const columnRemarks = 'remarks';
   static const columnPrice = 'price';
-  static const columnFavorite = 'remarks';
   static const columnMode = 'mode';
-  static const tableFavorite = "favorite";
+  static const columnCategory = 'category';
 
   static final ddlScripts = {
     '0': ['SELECT $columnPossession FROM $tablePossession;'],
@@ -41,7 +41,7 @@ class DatabaseConst {
       'CREATE TABLE $tableAccount ($columnNo INTEGER PRIMARY KEY AUTOINCREMENT, $columnDate TEXT NOT NULL, $columnRemarks TEXT, $columnPrice INTEGER NOT NULL, $columnMode INTEGER NOT NULL);'
     ],
     '7': [
-      'CREATE TABLE $tableFavorite ($columnNo INTEGER PRIMARY KEY AUTOINCREMENT, $columnRemarks TEXT, $columnPrice INTEGER NOT NULL);'
+      'CREATE TABLE $tableFavorite ($columnNo INTEGER PRIMARY KEY AUTOINCREMENT, $columnCategory TEXT, $columnRemarks TEXT, $columnPrice INTEGER NOT NULL);'
     ],
   };
 }

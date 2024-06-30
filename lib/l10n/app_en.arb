@@ -12,6 +12,9 @@
 
   "hint_need_number": "Input num",
   "hint_need_string": "Input string",
+  "hint_need_category": "分類",
+  "hint_need_remarks": "名称",
+  "hint_need_price": "金額",
 
   "db_initialize": "端末内のデータを初期化する",
   "account_maximum": "ランチ代上限",
@@ -22,6 +25,11 @@
 
   "amount_format": "#,##0",
   "datetime_format": "yyyy年MM月dd日 (E) HH:mm",
+
+  "favorite_caption": "お気に入り登録",
+  "favorite_category": "カテゴリ",
+  "favorite_remarks": "品名",
+  "favorite_price": "値段",
 
   "applicationTitle": "Stash Book",
   "applicationSettingTitle": "settings",

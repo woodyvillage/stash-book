@@ -9,7 +9,7 @@ class SimpleDialogAtoms extends AtomWidget {
     required this.actions,
   });
   final Text title;
-  final TextField? content;
+  final Widget? content;
   final List<Widget> actions;
 
   @override

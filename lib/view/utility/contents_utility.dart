@@ -46,6 +46,15 @@ InputDecoration getHint(BuildContext context, String word) {
     case 'C04':
       return InputDecoration(
           hintText: AppLocalizations.of(context)!.hint_need_string);
+    case 'F01':
+      return InputDecoration(
+          hintText: AppLocalizations.of(context)!.hint_need_category);
+    case 'F02':
+      return InputDecoration(
+          hintText: AppLocalizations.of(context)!.hint_need_remarks);
+    case 'F03':
+      return InputDecoration(
+          hintText: AppLocalizations.of(context)!.hint_need_price);
     default:
       return const InputDecoration(hintText: stringNull);
   }
@@ -57,6 +66,7 @@ TextInputType getKeyType(BuildContext context, String word) {
     case 'EXPENSE':
     case 'C02':
     case 'C03':
+    case 'F03':
       return TextInputType.number;
     default:
       return TextInputType.text;
@@ -69,6 +79,7 @@ List<TextInputFormatter> getFormat(BuildContext context, String word) {
     case 'EXPENSE':
     case 'C02':
     case 'C03':
+    case 'F03':
       return [FilteringTextInputFormatter.digitsOnly];
     default:
       return [FilteringTextInputFormatter.singleLineFormatter];

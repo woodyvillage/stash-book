@@ -32,3 +32,12 @@ final applicationLists = [
 // =============================================================================
 const functionSubmit = 'submit';
 const functionCancel = 'cancel';
+
+// =============================================================================
+// お気に入りフォームリスト
+// =============================================================================
+final favoriteLists = [
+  [patternEditor, 'F01', 'favorite_category', typeString],
+  [patternEditor, 'F02', 'favorite_remarks', typeString],
+  [patternEditor, 'F03', 'favorite_price', typeNumeric],
+];

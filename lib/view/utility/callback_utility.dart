@@ -7,6 +7,7 @@ import 'package:stash_book/const/database_const.dart';
 import 'package:stash_book/database/application_database.dart';
 import 'package:stash_book/model/data/dao/possession_dao.dart';
 import 'package:stash_book/model/data/dao/setting_dao.dart';
+import 'package:stash_book/model/data/dto/favorite_dto.dart';
 import 'package:stash_book/model/data/dto/setting_dto.dart';
 import 'package:stash_book/service/dialog_action_service.dart';
 import 'package:stash_book/service/possession_service.dart';
@@ -41,6 +42,21 @@ VoidCallback makeResultCallback(
     default:
       return () {};
   }
+}
+
+// マルチ入力ダイアログの結果受領コールバック
+VoidCallback makeResultsCallback(
+  BuildContext context,
+  List<TextEditingController> controllers,
+) {
+  return () => Navigator.pop<FavoriteDto>(
+        context,
+        FavoriteDto(
+            no: 0,
+            category: controllers[0].text,
+            remarks: controllers[1].text,
+            price: int.parse(controllers[2].text)),
+      );
 }
 
 // configのindexType別コールバック
