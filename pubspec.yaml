@@ -38,6 +38,7 @@ dependencies:
   # i18n, l10n
   flutter_localizations:
     sdk: flutter
+  flutter_gen_runner: ^4.0.0
 
   # Provider
   provider: ^6.0.2
