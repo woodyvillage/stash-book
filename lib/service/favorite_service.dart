@@ -68,7 +68,7 @@ void expense(
   AccountDto account = AccountDto(
     no: 0,
     date: DateTime.now().toUtc().toString(),
-    remarks: item.category + "(" + item.remarks + ")",
+    remarks: "${item.category}(${item.remarks})",
     price: item.price,
     mode: indexWithdraw,
   );
