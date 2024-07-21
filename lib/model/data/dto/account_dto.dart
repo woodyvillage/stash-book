@@ -5,6 +5,7 @@ class AccountDto {
   String date;
   String remarks;
   int price;
+  int menu;
   int mode;
 
   AccountDto({
@@ -12,6 +13,7 @@ class AccountDto {
     required this.date,
     required this.remarks,
     required this.price,
+    required this.menu,
     required this.mode,
   });
 
@@ -21,6 +23,7 @@ class AccountDto {
         date: record[DatabaseConst.columnDate],
         remarks: record[DatabaseConst.columnRemarks],
         price: record[DatabaseConst.columnPrice],
+        menu: record[DatabaseConst.columnMenu],
         mode: record[DatabaseConst.columnMode],
       );
 
@@ -29,6 +32,7 @@ class AccountDto {
         DatabaseConst.columnDate: date,
         DatabaseConst.columnRemarks: remarks,
         DatabaseConst.columnPrice: price,
+        DatabaseConst.columnMenu: menu,
         DatabaseConst.columnMode: mode,
       };
 }

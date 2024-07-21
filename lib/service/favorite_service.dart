@@ -22,6 +22,8 @@ Future getFavorite() async {
 ////////////////////////////////////////////////////////////////////
 Future setFavorite(FavoriteDto dto) async {
   FavoriteDao dao = FavoriteDao();
+  print(
+      'FavoriteDto insert no[${dto.no}] category[${dto.category}] remarks[${dto.remarks}] price[${dto.price}]');
   return await dao.insert(dao, dto);
 }
 
@@ -70,6 +72,7 @@ void expense(
     date: DateTime.now().toUtc().toString(),
     remarks: "${item.category}(${item.remarks})",
     price: item.price,
+    menu: item.no,
     mode: indexWithdraw,
   );
   await setActivity(account);

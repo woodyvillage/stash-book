@@ -25,6 +25,8 @@ Future getActivity() async {
 ////////////////////////////////////////////////////////////////////
 Future setActivity(AccountDto dto) async {
   AccountDao dao = AccountDao();
+  print(
+      'AccountDto insert no[${dto.no}] date[${dto.date}] remarks[${dto.remarks}] price[${dto.price}] menu[${dto.menu}] mode[${dto.mode}]');
   return await dao.insert(dao, dto);
 }
 
@@ -72,6 +74,7 @@ payment(ApplicationBloc bloc) async {
     date: DateTime.now().toUtc().toString(),
     remarks: remarks,
     price: amount,
+    menu: 0,
     mode: indexWithdraw,
   );
   await setActivity(account);
