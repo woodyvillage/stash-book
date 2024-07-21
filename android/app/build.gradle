@@ -7,7 +7,6 @@ plugins {
 def keystoreProperties = new Properties()
 def keystorePropertiesFile = rootProject.file('key.properties')
 if (keystorePropertiesFile.exists()) {
-    // keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
     keystorePropertiesFile.withReader('UTF-8') { reader ->
         keystoreProperties.load(reader)
     }
@@ -33,8 +32,7 @@ if (flutterVersionName == null) {
 
 android {
     namespace "com.woodyvillage.stash_book.stash_book"
-    // compileSdkVersion flutter.compileSdkVersion
-    compileSdkVersion 34
+    compileSdkVersion flutter.compileSdkVersion
     ndkVersion flutter.ndkVersion
 
     compileOptions {
