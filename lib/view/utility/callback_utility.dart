@@ -52,12 +52,13 @@ VoidCallback makeResultsCallback(
   return () => Navigator.pop<FavoriteDto>(
         context,
         FavoriteDto(
-            no: 0,
-            category: controllers[0].text,
-            remarks: controllers[1].text,
-            price: controllers[2].text == stringNull
-                ? 0
-                : int.parse(controllers[2].text)),
+          no: 0,
+          category: controllers[0].text,
+          remarks: controllers[1].text,
+          price: controllers[2].text == stringNull
+              ? 0
+              : int.parse(controllers[2].text),
+        ),
       );
 }
 

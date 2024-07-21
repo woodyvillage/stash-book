@@ -19,9 +19,6 @@ class MultiInputDialogMolecules extends MoleculeWidget {
     TextEditingController categoryCtrl = TextEditingController();
     TextEditingController remarksCtrl = TextEditingController();
     TextEditingController priceCtrl = TextEditingController();
-    // TextEditingController categoryCtrl = TextEditingController(text: "1");
-    // TextEditingController remarksCtrl = TextEditingController(text: "2");
-    // TextEditingController priceCtrl = TextEditingController(text: "3");
     List<TextEditingController> controllers = [
       categoryCtrl,
       remarksCtrl,
