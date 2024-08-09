@@ -22,7 +22,7 @@ Future getPossession() async {
 ////////////////////////////////////////////////////////////////////
 Future setPossession(PossessionDto dto) async {
   PossessionDao dao = PossessionDao();
-  return await dao.update(dao, dto);
+  return await dao.replace(dao, dto);
 }
 
 ////////////////////////////////////////////////////////////////////

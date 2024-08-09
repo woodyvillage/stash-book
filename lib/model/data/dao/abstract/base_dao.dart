@@ -21,11 +21,21 @@ abstract class BaseDao<T> {
     );
   }
 
+  Future<int> replace(dynamic dao, dynamic dto) async {
+    Database database = await ApplicationDatabase.database;
+    return await database.update(
+      scope(),
+      dto.toMap(),
+    );
+  }
+
   Future<int> update(dynamic dao, dynamic dto) async {
     Database database = await ApplicationDatabase.database;
     return await database.update(
       scope(),
       dto.toMap(),
+      where: 'no = ?',
+      whereArgs: [dto.no],
     );
   }
 
@@ -37,17 +47,22 @@ abstract class BaseDao<T> {
 
   Future<List<T>> select(String column, String value) async {
     Database database = await ApplicationDatabase.database;
-    List<Map<String, dynamic>> result =
-        await database.query(scope(), where: '$column = ?', whereArgs: [value]);
+    List<Map<String, dynamic>> result = await database.query(
+      scope(),
+      where: '$column = ?',
+      whereArgs: [value],
+    );
     return parseResult(result);
   }
 
   Future<List<T>> sort(String column, String direction) async {
     Database database = await ApplicationDatabase.database;
-    List<Map<String, dynamic>> result = await database.query(scope(),
-        where: 'deleted = ?',
-        whereArgs: [intRandom],
-        orderBy: '$column $direction');
+    List<Map<String, dynamic>> result = await database.query(
+      scope(),
+      where: 'deleted = ?',
+      whereArgs: [intRandom],
+      orderBy: '$column $direction',
+    );
     return parseResult(result);
   }
 

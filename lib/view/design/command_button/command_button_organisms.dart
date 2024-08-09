@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:stash_book/const/application_const.dart';
+import 'package:stash_book/const/common_const.dart';
 import 'package:stash_book/model/form/dto/form_button_dto.dart';
 import 'package:stash_book/view/design/widget/molecules/command_button_molecules.dart';
 
