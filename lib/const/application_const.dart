@@ -19,8 +19,8 @@ const String floaterFavorite = 'FAVORITE_ADD';
 // アプリケーションアクションリスト
 // =============================================================================
 // 固定インデックス
-const int indexDeposit = 0;
-const int indexWithdraw = 1;
+const int indexDeposit = 0; // 入金
+const int indexWithdraw = 1; // 出金
 
 final applicationLists = [
   [patternButton, 'A01', 'DEPOSIT', typeNumeric],
