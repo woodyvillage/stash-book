@@ -10,6 +10,6 @@ class ConfigListDto extends BaseFormDto {
     required super.callback,
     required this.caption,
     required this.command,
-    this.width,
+    this.width = 120,
   });
 }

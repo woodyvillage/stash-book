@@ -10,7 +10,6 @@ class ConfigListDao {
       callback: makeCallback(context, item),
       caption: getText(context, item[indexKey].toString()),
       command: getDesc(context, item[indexKey].toString()),
-      width: 120,
     );
   }
 }
