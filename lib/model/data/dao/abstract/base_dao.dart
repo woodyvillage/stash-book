@@ -1,4 +1,5 @@
 import 'package:sqflite/sqflite.dart';
+import 'package:stash_book/const/common_const.dart';
 import 'package:stash_book/database/application_database.dart';
 
 abstract class BaseDao<T> {
@@ -43,8 +44,10 @@ abstract class BaseDao<T> {
 
   Future<List<T>> sort(String column, String direction) async {
     Database database = await ApplicationDatabase.database;
-    List<Map<String, dynamic>> result =
-        await database.query(scope(), orderBy: '$column $direction');
+    List<Map<String, dynamic>> result = await database.query(scope(),
+        where: 'deleted = ?',
+        whereArgs: [intRandom],
+        orderBy: '$column $direction');
     return parseResult(result);
   }
 

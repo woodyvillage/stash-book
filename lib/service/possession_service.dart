@@ -54,8 +54,9 @@ deposit(
       date: DateTime.now().toUtc().toString(),
       remarks: AppLocalizations.of(context)!.deposit,
       price: amount,
-      menu: 0,
+      menu: intRandom,
       mode: indexDeposit,
+      deleted: typeNothing,
     );
     await setActivity(account);
 
@@ -93,8 +94,9 @@ withdraw(
       date: DateTime.now().toUtc().toString(),
       remarks: AppLocalizations.of(context)!.withdraw,
       price: amount,
-      menu: 0,
+      menu: intRandom,
       mode: indexWithdraw,
+      deleted: typeNothing,
     );
     await setActivity(account);
 

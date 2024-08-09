@@ -25,6 +25,7 @@ class DatabaseConst {
   static const columnPrice = 'price';
   static const columnMode = 'mode';
   static const columnMenu = 'menu';
+  static const columnDeleted = 'deleted';
   static const columnCategory = 'category';
 
   static final ddlScripts = {
@@ -39,10 +40,10 @@ class DatabaseConst {
     '4': ["insert into $tableSetting values(2, 'account_maximum', '900');"],
     '5': ["insert into $tableSetting values(3, 'account_remarks', 'ランチ代');"],
     '6': [
-      "CREATE TABLE $tableAccount ($columnNo INTEGER PRIMARY KEY AUTOINCREMENT, $columnDate TEXT NOT NULL, $columnRemarks TEXT, $columnPrice INTEGER NOT NULL, $columnMenu INTEGER NOT NULL, $columnMode INTEGER NOT NULL);"
+      "CREATE TABLE $tableAccount ($columnNo INTEGER PRIMARY KEY AUTOINCREMENT, $columnDate TEXT NOT NULL, $columnRemarks TEXT, $columnPrice INTEGER NOT NULL, $columnMenu INTEGER NOT NULL, $columnMode INTEGER NOT NULL, $columnDeleted INTEGER NOT NULL);"
     ],
     '7': [
-      "CREATE TABLE $tableFavorite ($columnNo INTEGER PRIMARY KEY AUTOINCREMENT, $columnCategory TEXT, $columnRemarks TEXT, $columnPrice INTEGER NOT NULL);"
+      "CREATE TABLE $tableFavorite ($columnNo INTEGER PRIMARY KEY AUTOINCREMENT, $columnCategory TEXT, $columnRemarks TEXT, $columnPrice INTEGER NOT NULL, $columnDeleted INTEGER NOT NULL);"
     ],
   };
 }

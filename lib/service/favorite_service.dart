@@ -45,8 +45,13 @@ Future entry(
       items: favoriteLists,
     );
   } catch (e) {
-    favorite =
-        FavoriteDto(no: 0, category: stringNull, remarks: stringNull, price: 0);
+    favorite = FavoriteDto(
+      no: 0,
+      category: stringNull,
+      remarks: stringNull,
+      price: 0,
+      deleted: typeNothing,
+    );
   }
 
   if (favorite.price > 0) {
@@ -74,6 +79,7 @@ void expense(
     price: item.price,
     menu: item.no,
     mode: indexWithdraw,
+    deleted: typeNothing,
   );
   await setActivity(account);
 

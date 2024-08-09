@@ -58,6 +58,7 @@ VoidCallback makeResultsCallback(
           price: controllers[2].text == stringNull
               ? 0
               : int.parse(controllers[2].text),
+          deleted: typeNothing,
         ),
       );
 }

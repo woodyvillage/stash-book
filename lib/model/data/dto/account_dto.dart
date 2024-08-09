@@ -5,8 +5,9 @@ class AccountDto {
   String date;
   String remarks;
   int price;
-  int menu;
-  int mode;
+  int menu; // 0:ランダム出費 n:お気に入りNo
+  int mode; // 0:入金 1:出金
+  int deleted; // 1:削除
 
   AccountDto({
     required this.no,
@@ -15,6 +16,7 @@ class AccountDto {
     required this.price,
     required this.menu,
     required this.mode,
+    required this.deleted,
   });
 
   // DBから読み取った値をDTOに詰める
@@ -25,6 +27,7 @@ class AccountDto {
         price: record[DatabaseConst.columnPrice],
         menu: record[DatabaseConst.columnMenu],
         mode: record[DatabaseConst.columnMode],
+        deleted: record[DatabaseConst.columnDeleted],
       );
 
   // DBにDTOのデータをinsertする
@@ -34,5 +37,6 @@ class AccountDto {
         DatabaseConst.columnPrice: price,
         DatabaseConst.columnMenu: menu,
         DatabaseConst.columnMode: mode,
+        DatabaseConst.columnDeleted: deleted,
       };
 }

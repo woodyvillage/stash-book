@@ -5,12 +5,14 @@ class FavoriteDto {
   String category;
   String remarks;
   int price;
+  int deleted; // 1:削除
 
   FavoriteDto({
     required this.no,
     required this.category,
     required this.remarks,
     required this.price,
+    required this.deleted,
   });
 
   // DBから読み取った値をDTOに詰める
@@ -19,6 +21,7 @@ class FavoriteDto {
         category: record[DatabaseConst.columnCategory],
         remarks: record[DatabaseConst.columnRemarks],
         price: record[DatabaseConst.columnPrice],
+        deleted: record[DatabaseConst.columnDeleted],
       );
 
   // DBにDTOのデータをinsertする
@@ -26,5 +29,6 @@ class FavoriteDto {
         DatabaseConst.columnCategory: category,
         DatabaseConst.columnRemarks: remarks,
         DatabaseConst.columnPrice: price,
+        DatabaseConst.columnDeleted: deleted,
       };
 }
