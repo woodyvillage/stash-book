@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:stash_book/model/form/dto/config_list_dto.dart';
+import 'package:stash_book/model/form/dto/list_item_array_dto.dart';
 import 'package:stash_book/view/design/widget/atoms/button/select_button.dart';
 import 'package:stash_book/view/design/wrapper/atoms_widget.dart';
 
@@ -8,7 +8,7 @@ class ConfigurationItemAtoms extends AtomWidget {
     super.key,
     required this.item,
   });
-  final ConfigListDto item;
+  final ListItemArrayDto item;
 
   @override
   Widget buildMaterial(BuildContext context) {

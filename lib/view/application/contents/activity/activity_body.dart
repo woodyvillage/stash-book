@@ -27,10 +27,11 @@ class _ActivityBodyState extends State<ActivityBody> {
         builder: (context, snapshot) {
           if (snapshot.hasData) {
             return ListView.builder(
-                itemCount: snapshot.data?.length,
-                itemBuilder: (context, index) {
-                  return AccountListTileOrganisms(item: snapshot.data![index]);
-                });
+              itemCount: snapshot.data?.length,
+              itemBuilder: (context, index) {
+                return AccountListTileOrganisms(item: snapshot.data![index]);
+              },
+            );
           } else {
             return ListView();
           }

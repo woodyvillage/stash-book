@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:stash_book/model/form/dto/abstract/base_form_dto.dart';
+import 'package:stash_book/model/form/dto/abstract/base_item_dto.dart';
 
-class ConfigListDto extends BaseFormDto {
+class ListItemArrayDto extends BaseItemDto {
   Text caption;
   Text command;
   double? width;
 
-  ConfigListDto({
+  ListItemArrayDto({
     required super.callback,
     required this.caption,
     required this.command,
