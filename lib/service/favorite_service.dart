@@ -24,8 +24,6 @@ Future getFavorite() async {
 ////////////////////////////////////////////////////////////////////
 Future setFavorite(FavoriteDto dto) async {
   FavoriteDao dao = FavoriteDao();
-  print(
-      'FavoriteDto insert no[${dto.no}] category[${dto.category}] remarks[${dto.remarks}] price[${dto.price}]');
   return await dao.insert(dao, dto);
 }
 
@@ -46,7 +44,7 @@ Future entry(
     deleted: typeNothing,
   );
 
-// ダイアログ入力
+  // ダイアログ入力
   favorite = await applicationDialog<FavoriteFloaterItemArrayDto>(
     context: context,
     title: contentsFavorite,
@@ -54,15 +52,14 @@ Future entry(
     initial: typeMultiple,
     items: dao.createDto(favoriteLists, favorite),
   );
-  // }
 
-  // if (favorite.price > 0) {
-  //   // お気に入りの更新
-  //   await setFavorite(favorite);
+  if (favorite.price > 0) {
+    // お気に入りの更新
+    await setFavorite(favorite);
 
-  //   // 出金の通知
-  //   bloc.withdraw.add(0);
-  // }
+    // 出金の通知
+    bloc.withdraw.add(0);
+  }
 }
 
 ////////////////////////////////////////////////////////////////////
