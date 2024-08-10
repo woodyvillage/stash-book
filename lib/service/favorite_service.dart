@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:stash_book/bloc/application_bloc.dart';
 import 'package:stash_book/const/application_const.dart';
 import 'package:stash_book/const/common_const.dart';
@@ -84,4 +85,7 @@ void expense(
 
   // 出金の通知
   bloc.withdraw.add(item.price);
+
+  // 振動
+  HapticFeedback.heavyImpact();
 }
