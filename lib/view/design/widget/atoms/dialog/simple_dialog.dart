@@ -16,13 +16,23 @@ class SimpleDialogAtoms extends AtomWidget {
   Widget buildMaterial(BuildContext context) {
     if (content == null) {
       return AlertDialog(
+        insetPadding: const EdgeInsets.all(15),
         title: title,
+        content: const SizedBox(
+          width: 400,
+          height: 0,
+        ),
         actions: actions,
       );
     } else {
       return AlertDialog(
+        insetPadding: const EdgeInsets.all(15),
         title: title,
-        content: content,
+        // content: content,
+        content: SizedBox(
+          width: 400,
+          child: content,
+        ),
         actions: actions,
       );
     }
