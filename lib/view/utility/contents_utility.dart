@@ -2,8 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:stash_book/const/common_const.dart';
-import 'package:stash_book/const/database_const.dart';
-import 'package:stash_book/model/data/dto/account_dto.dart';
+import 'package:stash_book/model/data/dto/favorite_dto.dart';
 
 Text getText(BuildContext context, String word) {
   switch (word) {
@@ -37,17 +36,17 @@ Text getDesc(BuildContext context, String word) {
   }
 }
 
-TextEditingController getDefault(
+TextEditingController getDefault<T extends FavoriteDto>(
   TextEditingController controller,
   String column,
-  AccountDto value,
+  T value,
 ) {
   switch (column) {
     case 'F22':
-      controller.text = value.getRemarks();
+      controller.text = value.remarks.toString();
       return controller;
     case 'F23':
-      controller.text = value.getPrice().toString();
+      controller.text = value.price == 0 ? stringNull : value.price.toString();
       return controller;
     default:
       return controller;
@@ -87,7 +86,8 @@ TextInputType getKeyType(BuildContext context, String word) {
     case 'WITHDRAW':
     case 'C02':
     case 'C03':
-    case 'F03':
+    case 'F13':
+    case 'F23':
       return TextInputType.number;
     default:
       return TextInputType.text;
@@ -100,7 +100,8 @@ List<TextInputFormatter> getFormat(BuildContext context, String word) {
     case 'WITHDRAW':
     case 'C02':
     case 'C03':
-    case 'F03':
+    case 'F13':
+    case 'F23':
       return [FilteringTextInputFormatter.digitsOnly];
     default:
       return [FilteringTextInputFormatter.singleLineFormatter];

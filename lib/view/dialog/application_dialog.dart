@@ -1,31 +1,32 @@
 import 'package:flutter/material.dart';
 import 'package:stash_book/const/common_const.dart';
+import 'package:stash_book/model/form/dto/abstract/base_form_dto.dart';
 import 'package:stash_book/view/design/confirm_dialog/confirm_dialog_organisms.dart';
 import 'package:stash_book/view/design/multi_input_dialog/multi_input_dialog_organisms.dart';
 import 'package:stash_book/view/design/single_input_dialog/single_input_dialog_organisms.dart';
 
 // ダイアログ表示
-Future applicationDialog({
+Future applicationDialog<T extends BaseFormDto>({
   required BuildContext context,
   required String title,
   required Object value,
   required int initial,
-  List<List<Object>>? items,
+  T? items,
 }) {
   return showDialog(
     context: context,
     useRootNavigator: true,
     builder: (BuildContext context) {
-      return dialogBuilder(title, value, items, initial);
+      return dialogBuilder(title, value, initial, items);
     },
   );
 }
 
-Widget dialogBuilder(
+Widget dialogBuilder<T extends BaseFormDto>(
   String title,
   Object value,
-  List<List<Object>>? items,
   int initial,
+  T? items,
 ) {
   Widget dialog;
 
@@ -38,7 +39,6 @@ Widget dialogBuilder(
     dialog = MultiInputDialogOrganisms(
       title: title,
       items: items!,
-      value: value,
     );
   } else {
     // シングル入力

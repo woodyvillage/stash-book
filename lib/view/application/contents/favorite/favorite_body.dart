@@ -27,10 +27,11 @@ class _FavoriteBodyState extends State<FavoriteBody> {
         builder: (context, snapshot) {
           if (snapshot.hasData) {
             return ListView.builder(
-                itemCount: snapshot.data?.length,
-                itemBuilder: (context, index) {
-                  return FavoriteListTileOrganisms(item: snapshot.data![index]);
-                });
+              itemCount: snapshot.data?.length,
+              itemBuilder: (context, index) {
+                return FavoriteListTileOrganisms(item: snapshot.data![index]);
+              },
+            );
           } else {
             return ListView();
           }

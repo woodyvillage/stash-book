@@ -6,6 +6,8 @@ import 'package:stash_book/const/database_const.dart';
 import 'package:stash_book/model/data/dao/favorite_dao.dart';
 import 'package:stash_book/model/data/dto/account_dto.dart';
 import 'package:stash_book/model/data/dto/favorite_dto.dart';
+import 'package:stash_book/model/form/dao/favorite_floater_item_array_dao.dart';
+import 'package:stash_book/model/form/dto/favorite_floater_item_array_dto.dart';
 import 'package:stash_book/service/account_service.dart';
 import 'package:stash_book/view/dialog/application_dialog.dart';
 
@@ -34,33 +36,33 @@ Future entry(
   BuildContext context,
   ApplicationBloc bloc,
 ) async {
-  // 入力内容
-  FavoriteDto favorite;
-  try {
-    favorite = await applicationDialog(
-      context: context,
-      title: contentsFavorite,
-      value: stringNull,
-      initial: typeMultiple,
-      items: favoriteLists,
-    );
-  } catch (e) {
-    favorite = FavoriteDto(
-      no: 0,
-      category: stringNull,
-      remarks: stringNull,
-      price: 0,
-      deleted: typeNothing,
-    );
-  }
+  // 画面情報構成
+  FavoriteFloaterItemArrayDao dao = FavoriteFloaterItemArrayDao();
+  FavoriteDto favorite = FavoriteDto(
+    no: 0,
+    category: stringNull,
+    remarks: stringNull,
+    price: 0,
+    deleted: typeNothing,
+  );
 
-  if (favorite.price > 0) {
-    // お気に入りの更新
-    await setFavorite(favorite);
+// ダイアログ入力
+  favorite = await applicationDialog<FavoriteFloaterItemArrayDto>(
+    context: context,
+    title: contentsFavorite,
+    value: stringNull,
+    initial: typeMultiple,
+    items: dao.createDto(favoriteLists, favorite),
+  );
+  // }
 
-    // 出金の通知
-    bloc.withdraw.add(0);
-  }
+  // if (favorite.price > 0) {
+  //   // お気に入りの更新
+  //   await setFavorite(favorite);
+
+  //   // 出金の通知
+  //   bloc.withdraw.add(0);
+  // }
 }
 
 ////////////////////////////////////////////////////////////////////

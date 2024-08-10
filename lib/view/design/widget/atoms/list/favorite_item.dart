@@ -11,19 +11,19 @@ class FavoriteItemAtoms extends AtomWidget {
     super.key,
     required this.item,
   });
-  final FavoriteDto item;
+  final FavoriteFloaterItemArrayDto item;
 
   @override
   Widget buildMaterial(BuildContext context) {
     ApplicationBloc bloc = Provider.of<ApplicationBloc>(context);
     return ListTile(
-      leading: CircleAvatarAtoms(mode: 9, price: item.price),
+      leading: CircleAvatarAtoms(mode: 9, price: item.dto.price),
       title: Text(
-        item.category,
+        item.dto.category,
         style: const TextStyle(fontSize: 16),
       ),
       subtitle: Text(
-        item.remarks,
+        item.dto.remarks,
         style: const TextStyle(fontSize: 16),
       ),
       onLongPress: () => expense(context, bloc, item),
