@@ -22,6 +22,12 @@ class AccountListTileMolecules extends MoleculeWidget {
   List<AccountMenuDto> buildMolecules(final BuildContext context) {
     List<AccountMenuDto> menus = [];
     menus.add(AccountMenuDto(
+      index: 'modify',
+      callback: () => {},
+      caption: Text(AppLocalizations.of(context)!.edit),
+      icon: Icons.edit,
+    ));
+    menus.add(AccountMenuDto(
       index: 'delete',
       callback: () => {},
       caption: Text(AppLocalizations.of(context)!.delete),

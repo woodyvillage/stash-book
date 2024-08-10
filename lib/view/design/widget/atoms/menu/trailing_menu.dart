@@ -28,7 +28,7 @@ class TrailingMenuAtoms extends AtomWidget {
           position: RelativeRect.fromLTRB(position.dx, position.dy, 0, 0),
           items: buildMolecules(menu),
         ).then((value) {
-          MenuActionService.dispatch(bloc, item, value);
+          MenuActionService.dispatch(bloc, context, item, value);
         });
       },
     );
