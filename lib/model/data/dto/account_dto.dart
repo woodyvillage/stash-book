@@ -39,4 +39,16 @@ class AccountDto {
         DatabaseConst.columnMode: mode,
         DatabaseConst.columnDeleted: deleted,
       };
+
+  String getDate() {
+    return date;
+  }
+
+  String getRemarks() {
+    return remarks;
+  }
+
+  int getPrice() {
+    return price;
+  }
 }

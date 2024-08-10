@@ -39,7 +39,7 @@ Future entry(
   try {
     favorite = await applicationDialog(
       context: context,
-      title: stringNull,
+      title: contentsFavorite,
       value: stringNull,
       initial: typeMultiple,
       items: favoriteLists,

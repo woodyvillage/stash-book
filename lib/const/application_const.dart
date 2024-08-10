@@ -28,10 +28,19 @@ final applicationLists = [
 ];
 
 // =============================================================================
+// 入出金フォームリスト
+// =============================================================================
+final accountLists = [
+  [patternPicker, 'F11', 'dialog_date', typeString],
+  [patternEditor, 'F12', 'dialog_remarks', typeString],
+  [patternEditor, 'F13', 'dialog_price', typeNumeric],
+];
+
+// =============================================================================
 // お気に入りフォームリスト
 // =============================================================================
 final favoriteLists = [
-  [patternEditor, 'F01', 'favorite_category', typeString],
-  [patternEditor, 'F02', 'favorite_remarks', typeString],
-  [patternEditor, 'F03', 'favorite_price', typeNumeric],
+  [patternEditor, 'F21', 'dialog_category', typeString],
+  [patternEditor, 'F22', 'dialog_remarks', typeString],
+  [patternEditor, 'F23', 'dialog_price', typeNumeric],
 ];

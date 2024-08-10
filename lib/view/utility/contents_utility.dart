@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:stash_book/const/common_const.dart';
+import 'package:stash_book/const/database_const.dart';
+import 'package:stash_book/model/data/dto/account_dto.dart';
 
 Text getText(BuildContext context, String word) {
   switch (word) {
@@ -35,6 +37,23 @@ Text getDesc(BuildContext context, String word) {
   }
 }
 
+TextEditingController getDefault(
+  TextEditingController controller,
+  String column,
+  AccountDto value,
+) {
+  switch (column) {
+    case 'F22':
+      controller.text = value.getRemarks();
+      return controller;
+    case 'F23':
+      controller.text = value.getPrice().toString();
+      return controller;
+    default:
+      return controller;
+  }
+}
+
 InputDecoration getHint(BuildContext context, String word) {
   switch (word) {
     case 'DEPOSIT':
@@ -46,13 +65,15 @@ InputDecoration getHint(BuildContext context, String word) {
     case 'C04':
       return InputDecoration(
           hintText: AppLocalizations.of(context)!.hint_need_string);
-    case 'F01':
+    case 'F21':
       return InputDecoration(
           hintText: AppLocalizations.of(context)!.hint_need_category);
-    case 'F02':
+    case 'F12':
+    case 'F22':
       return InputDecoration(
           hintText: AppLocalizations.of(context)!.hint_need_remarks);
-    case 'F03':
+    case 'F13':
+    case 'F23':
       return InputDecoration(
           hintText: AppLocalizations.of(context)!.hint_need_price);
     default:

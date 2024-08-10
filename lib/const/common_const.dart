@@ -6,7 +6,6 @@ const int indexType = 0;
 const int indexKey = 1;
 const int indexName = 2;
 const int indexInitial = 3;
-const int indexStyle = 4;
 
 // 返却値
 const int typeNothing = 0;
@@ -27,6 +26,7 @@ const int intDeleted = 1;
 // =============================================================================
 const String patternButton = 'BTN';
 const String patternEditor = 'TXT';
+const String patternPicker = 'DTP';
 
 // =============================================================================
 // コマンドボタン

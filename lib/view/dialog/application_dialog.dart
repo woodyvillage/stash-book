@@ -8,7 +8,7 @@ import 'package:stash_book/view/design/single_input_dialog/single_input_dialog_o
 Future applicationDialog({
   required BuildContext context,
   required String title,
-  required String value,
+  required Object value,
   required int initial,
   List<List<Object>>? items,
 }) {
@@ -23,7 +23,7 @@ Future applicationDialog({
 
 Widget dialogBuilder(
   String title,
-  String value,
+  Object value,
   List<List<Object>>? items,
   int initial,
 ) {
@@ -36,13 +36,15 @@ Widget dialogBuilder(
   } else if (initial == typeMultiple) {
     // マルチ入力
     dialog = MultiInputDialogOrganisms(
+      title: title,
       items: items!,
+      value: value,
     );
   } else {
     // シングル入力
     dialog = SingleInputDialogOrganisms(
       title: title,
-      value: value,
+      value: value.toString(),
       type: initial,
     );
   }
