@@ -15,7 +15,7 @@ class SelectButtonAtoms extends AtomWidget {
       mainAxisAlignment: MainAxisAlignment.end,
       children: [
         ElevatedButton.icon(
-          label: item.command,
+          label: item.command!,
           style: ElevatedButton.styleFrom(
             backgroundColor: Colors.blueGrey,
             foregroundColor: Colors.white,
