@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:stash_book/model/data/dto/account_dto.dart';
-import 'package:stash_book/model/form/dto/account_menu_dto.dart';
+import 'package:stash_book/model/form/dto/account_list_item_array_dto.dart';
+import 'package:stash_book/model/form/dto/list_item_array_dto.dart';
 import 'package:stash_book/view/design/widget/atoms/avatar/circle_avatar.dart';
 import 'package:stash_book/view/design/widget/atoms/menu/trailing_menu.dart';
 import 'package:stash_book/view/design/wrapper/atoms_widget.dart';
@@ -10,24 +10,24 @@ class AccountItemAtoms extends AtomWidget {
   const AccountItemAtoms({
     super.key,
     required this.item,
-    required this.menus,
+    required this.menu,
   });
-  final AccountDto item;
-  final List<AccountMenuDto> menus;
+  final AccountListItemArrayDto item;
+  final List<ListItemArrayDto> menu;
 
   @override
   Widget buildMaterial(BuildContext context) {
     return ListTile(
-      leading: CircleAvatarAtoms(mode: item.mode, price: item.price),
+      leading: CircleAvatarAtoms(mode: item.dto.mode, price: item.dto.price),
       title: Text(
-        item.remarks,
+        item.dto.remarks,
         style: const TextStyle(fontSize: 16),
       ),
       subtitle: Text(
-        formatDate(context, item.date),
+        formatDate(context, item.dto.date),
         style: const TextStyle(fontSize: 10),
       ),
-      trailing: TrailingMenuAtoms(item: item, menu: menus),
+      trailing: TrailingMenuAtoms(item: item, menu: menu),
     );
   }
 }

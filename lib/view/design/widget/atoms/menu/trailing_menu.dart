@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:stash_book/bloc/application_bloc.dart';
-import 'package:stash_book/model/data/dto/account_dto.dart';
-import 'package:stash_book/model/form/dto/account_menu_dto.dart';
+import 'package:stash_book/model/form/dto/account_list_item_array_dto.dart';
+import 'package:stash_book/model/form/dto/list_item_array_dto.dart';
 import 'package:stash_book/service/menu_action_service.dart';
 import 'package:stash_book/view/design/widget/atoms/padding/separator.dart';
 import 'package:stash_book/view/design/wrapper/atoms_widget.dart';
@@ -13,8 +13,8 @@ class TrailingMenuAtoms extends AtomWidget {
     required this.item,
     required this.menu,
   });
-  final AccountDto item;
-  final List<AccountMenuDto> menu;
+  final AccountListItemArrayDto item;
+  final List<ListItemArrayDto> menu;
 
   @override
   Widget buildMaterial(BuildContext context) {
@@ -34,9 +34,9 @@ class TrailingMenuAtoms extends AtomWidget {
     );
   }
 
-  List<PopupMenuItem<String>> buildMolecules(List<AccountMenuDto> menus) {
+  List<PopupMenuItem<String>> buildMolecules(List<ListItemArrayDto> menus) {
     List<PopupMenuItem<String>> menuitem = [];
-    for (AccountMenuDto menu in menus) {
+    for (ListItemArrayDto menu in menus) {
       menuitem.add(
         PopupMenuItem<String>(
           value: menu.index,
