@@ -26,7 +26,7 @@ Future getActivity() async {
 Future setActivity(AccountDto dto) async {
   AccountDao dao = AccountDao();
   print(
-      'AccountDto insert no[${dto.no}] date[${dto.date}] remarks[${dto.remarks}] price[${dto.price}] menu[${dto.menu}] mode[${dto.mode} deleted[${dto.deleted}]]');
+      'AccountDto insert no[${dto.no}] date[${dto.date}] remarks[${dto.remarks}] price[${dto.price}] menu[${dto.menu}] mode[${dto.mode}] deleted[${dto.deleted}]');
   return await dao.insert(dao, dto);
 }
 
