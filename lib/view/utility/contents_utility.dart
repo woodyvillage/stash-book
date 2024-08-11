@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:stash_book/const/common_const.dart';
+import 'package:stash_book/model/data/dto/account_dto.dart';
 import 'package:stash_book/model/data/dto/favorite_dto.dart';
 
 Text getText(BuildContext context, String word) {
@@ -36,20 +37,42 @@ Text getDesc(BuildContext context, String word) {
   }
 }
 
-TextEditingController getDefault<T extends FavoriteDto>(
+TextEditingController getDefault(
   TextEditingController controller,
   String column,
-  T value,
+  Object value,
 ) {
-  switch (column) {
-    case 'F22':
-      controller.text = value.remarks.toString();
-      return controller;
-    case 'F23':
-      controller.text = value.price == 0 ? stringNull : value.price.toString();
-      return controller;
-    default:
-      return controller;
+  AccountDto account;
+  FavoriteDto favorite;
+  if (value.runtimeType == AccountDto) {
+    account = value as AccountDto;
+    switch (column) {
+      case 'F11':
+        controller.text = account.date.toString();
+        return controller;
+      case 'F12':
+        controller.text = account.remarks.toString();
+        return controller;
+      case 'F13':
+        controller.text =
+            account.price == 0 ? stringNull : account.price.toString();
+        return controller;
+      default:
+        return controller;
+    }
+  } else {
+    favorite = value as FavoriteDto;
+    switch (column) {
+      case 'F22':
+        controller.text = favorite.remarks.toString();
+        return controller;
+      case 'F23':
+        controller.text =
+            favorite.price == 0 ? stringNull : favorite.price.toString();
+        return controller;
+      default:
+        return controller;
+    }
   }
 }
 

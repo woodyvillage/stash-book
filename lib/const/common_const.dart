@@ -20,6 +20,8 @@ const String stringError = "**err**";
 // 固定数値
 const int intRandom = 0;
 const int intDeleted = 1;
+const int intNothing = 0;
+const int intMinus = -1;
 
 // =============================================================================
 // コントロールの識別子

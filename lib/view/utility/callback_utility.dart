@@ -7,6 +7,7 @@ import 'package:stash_book/const/database_const.dart';
 import 'package:stash_book/database/application_database.dart';
 import 'package:stash_book/model/data/dao/possession_dao.dart';
 import 'package:stash_book/model/data/dao/setting_dao.dart';
+import 'package:stash_book/model/data/dto/account_dto.dart';
 import 'package:stash_book/model/data/dto/favorite_dto.dart';
 import 'package:stash_book/model/data/dto/setting_dto.dart';
 import 'package:stash_book/service/dialog_action_service.dart';
@@ -48,19 +49,38 @@ VoidCallback makeResultCallback(
 VoidCallback makeResultsCallback(
   BuildContext context,
   List<TextEditingController> controllers,
+  Object item,
 ) {
-  return () => Navigator.pop<FavoriteDto>(
-        context,
-        FavoriteDto(
-          no: 0,
-          category: controllers[0].text,
-          remarks: controllers[1].text,
-          price: controllers[2].text == stringNull
-              ? 0
-              : int.parse(controllers[2].text),
-          deleted: typeNothing,
-        ),
-      );
+  if (item.runtimeType == AccountDto) {
+    AccountDto account = item as AccountDto;
+    return () => Navigator.pop<AccountDto>(
+          context,
+          AccountDto(
+            no: account.no,
+            date: controllers[0].text,
+            remarks: controllers[1].text,
+            price: controllers[2].text == stringNull
+                ? 0
+                : int.parse(controllers[2].text),
+            menu: account.menu,
+            mode: account.mode,
+            deleted: typeNothing,
+          ),
+        );
+  } else {
+    return () => Navigator.pop<FavoriteDto>(
+          context,
+          FavoriteDto(
+            no: 0,
+            category: controllers[0].text,
+            remarks: controllers[1].text,
+            price: controllers[2].text == stringNull
+                ? 0
+                : int.parse(controllers[2].text),
+            deleted: typeNothing,
+          ),
+        );
+  }
 }
 
 // configのindexType別コールバック

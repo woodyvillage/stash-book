@@ -21,13 +21,23 @@ Future getActivity() async {
 }
 
 ////////////////////////////////////////////////////////////////////
-// 入出金更新
+// 入出金登録
 ////////////////////////////////////////////////////////////////////
 Future setActivity(AccountDto dto) async {
   AccountDao dao = AccountDao();
   print(
       'AccountDto insert no[${dto.no}] date[${dto.date}] remarks[${dto.remarks}] price[${dto.price}] menu[${dto.menu}] mode[${dto.mode}] deleted[${dto.deleted}]');
   return await dao.insert(dao, dto);
+}
+
+////////////////////////////////////////////////////////////////////
+// 入出金更新
+////////////////////////////////////////////////////////////////////
+Future updActivity(AccountDto dto) async {
+  AccountDao dao = AccountDao();
+  print(
+      'AccountDto update no[${dto.no}] date[${dto.date}] remarks[${dto.remarks}] price[${dto.price}] menu[${dto.menu}] mode[${dto.mode}] deleted[${dto.deleted}]');
+  return await dao.update(dao, dto);
 }
 
 ////////////////////////////////////////////////////////////////////

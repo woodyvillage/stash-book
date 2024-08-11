@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:stash_book/const/application_const.dart';
 import 'package:stash_book/const/common_const.dart';
-import 'package:stash_book/model/data/dto/favorite_dto.dart';
 import 'package:stash_book/model/form/dto/abstract/base_form_dto.dart';
 import 'package:stash_book/view/design/widget/atoms/button/dialog_button.dart';
 import 'package:stash_book/view/design/widget/atoms/dialog/simple_dialog.dart';
@@ -50,10 +49,10 @@ class MultiInputDialogMolecules<T extends BaseFormDto> extends MoleculeWidget {
       if (item[indexType].toString() == patternEditor) {
         // テキスト入力
         TextField field = TextField(
-          controller: getDefault<FavoriteDto>(
+          controller: getDefault(
             controllers[i],
             item[indexKey].toString(),
-            items.dto as FavoriteDto,
+            items.dto,
           ),
           decoration: getHint(context, item[indexKey].toString()),
           keyboardType: getKeyType(context, item[indexKey].toString()),
@@ -75,7 +74,7 @@ class MultiInputDialogMolecules<T extends BaseFormDto> extends MoleculeWidget {
     ));
     containers.add(DialogButtonAtoms(
       title: AppLocalizations.of(context)!.submit,
-      callback: makeResultsCallback(context, controllers),
+      callback: makeResultsCallback(context, controllers, items.dto),
     ));
     return containers;
   }

@@ -31,7 +31,7 @@ final applicationLists = [
 // 入出金フォームリスト
 // =============================================================================
 final accountLists = [
-  [patternPicker, 'F11', 'dialog_date', typeString],
+  [patternEditor, 'F11', 'dialog_date', typeString],
   [patternEditor, 'F12', 'dialog_remarks', typeString],
   [patternEditor, 'F13', 'dialog_price', typeNumeric],
 ];
